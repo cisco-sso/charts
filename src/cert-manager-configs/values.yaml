@@ -1,0 +1,43 @@
+# Default values for cert-manager-configs.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+clusterissuers: {}
+# clusterissuers:
+# - name: letsencrypt-production
+#   server: https://acme-v02.api.letsencrypt.org/directory
+#   email: you@yourdomain.com
+#   challengeproviders:
+#     dns01:
+#       providers:
+#       - name: route53
+#         route53:
+#           region: us-east-2
+# - name: letsencrypt-staging
+#   clusterissuer: letsencrypt-staging
+#   server: https://acme-staging-v02.api.letsencrypt.org/directory
+#   email: 'you@yourdomain.com'
+#   challengeproviders:
+#     dns01:
+#       providers:
+#       - name: route53
+#         route53:
+#           region: us-east-2
+
+
+certificates: {}
+# certificates:
+# - name: wildcard-production-tls
+#   domains:
+#   - '*.yourdomain.com'
+#   clusterissuer: letsencrypt-production
+#   challengeproviders:
+#   - dns01:
+#       provider: route53
+# - name: wildcard-staging-tls
+#   domains:
+#   - '*.yourdomain.com'
+#   clusterissuer: letsencrypt-staging
+#   challengeproviders:
+#   - dns01:
+#       provider: route53

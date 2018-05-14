@@ -1,0 +1,29 @@
+- hosts: localhost
+  tasks:
+
+    - name: helm | Find chart dirs.
+      find:
+        paths: "{{ playbook_dir }}/src"
+        file_type: directory
+      register: helm_chart_dirs
+      tags:
+        - helmRepo
+
+    - name: helm | Package charts.
+      command: "helm package --dependency-update {{ item.path }}"
+      args:
+        chdir: "{{ playbook_dir }}/pkg"
+      with_items: "{{ helm_chart_dirs.files }}"
+      register: helm_charts_packaged
+      loop_control:
+        label: "{{ helm_charts_packaged.stdout.split('pkg/')[-1] }}"
+      tags:
+        - helmRepo
+
+    - name: helm | Generate a new repo index.
+      command: "helm repo index . --url {{ lookup('env', 'HELM_REPO_URL') }}"
+      args:
+        chdir: "{{ playbook_dir }}/pkg"
+      tags:
+        - helmRepo
+        - helmRepoGenerateIndex

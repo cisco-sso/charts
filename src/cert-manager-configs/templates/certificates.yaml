@@ -1,0 +1,35 @@
+{{- if .Values.certificates -}}
+{{- $fullName := include "cert-manager-configs.fullname" . -}}
+
+{{- $root := . }}
+{{- range $certificate := .Values.certificates }}
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: {{ $certificate.name }}
+  labels:
+    app: {{ template "cert-manager-configs.name" $root }}
+    chart: {{ template "cert-manager-configs.chart" $root }}
+    release: {{ $root.Release.Name }}
+    heritage: {{ $root.Release.Service }}
+spec:
+  dnsNames:
+{{- range $certificate.domains }}
+  - '{{ . }}'
+{{- end }}
+  issuerRef:
+    kind: ClusterIssuer
+    name: {{ $certificate.clusterissuer }}
+  secretName: {{ $certificate.name }}
+  acme:
+    config:
+{{ toYaml $certificate.challengeproviders | indent 4 }}
+      domains:
+{{- range $certificate.domains }}
+      - '{{ . }}'
+{{- end }}
+
+{{- end }}
+
+{{- end }}

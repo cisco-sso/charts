@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  cert-manager-configs:
+  - apiVersion: v1
+    appVersion: 0.1.0
+    created: 2018-05-14T22:14:06.286881846Z
+    description: A Helm chart for adding Cert-Manager Configurations
+    digest: 00b604b0200a8c57804fd1b423eec29ce900bc09e918ae9ce80311b3bc925915
+    name: cert-manager-configs
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/cert-manager-configs-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-05-14T22:14:06.28461549Z
