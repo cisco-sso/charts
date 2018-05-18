@@ -1,0 +1,49 @@
+replicaCount: 1
+
+image:
+  repository: "docker.elastic.co/kibana/kibana-oss"
+  tag: "6.2.4"
+  pullPolicy: "IfNotPresent"
+#  pullSecrets:
+
+ports:
+  kibana:
+    containerPort: 5601
+
+service:
+  type: ClusterIP
+  annotations: {}
+  ports:
+    kibana:
+      port: 5601
+      targetPort: 5601
+
+ingress:
+  enabled: false
+  annotations: {}
+  path: /
+  hosts: []
+  tls: []
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+annotations: {}
+
+# All Kibana configuration options are adjustable via env vars.
+# To adjust a config option to an env var uppercase + replace `.` with `_`
+# Ref: https://www.elastic.co/guide/en/kibana/current/settings.html
+env: {}
+#  ELASTICSEARCH_URL: http://elasticsearch-client:9200
+#  SERVER_PORT: 5601
+#  LOGGING_VERBOSE: "true"
+#  SERVER_DEFAULTROUTE: "/app/kibana"
+
+args: []
+
+plugins: []

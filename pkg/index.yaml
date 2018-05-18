@@ -3,7 +3,7 @@ entries:
   cert-manager-configs:
   - apiVersion: v1
     appVersion: 0.1.0
-    created: 2018-05-18T11:02:20.9549-05:00
+    created: 2018-05-18T18:04:59.8913361-05:00
     description: A Helm chart for adding Cert-Manager Configurations
     digest: 00b604b0200a8c57804fd1b423eec29ce900bc09e918ae9ce80311b3bc925915
     name: cert-manager-configs
@@ -11,7 +11,7 @@ entries:
     - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/cert-manager-configs-0.1.0.tgz
     version: 0.1.0
   elasticsearch:
-  - created: 2018-05-18T11:02:20.955761-05:00
+  - created: 2018-05-18T18:04:59.892039508-05:00
     description: Flexible and powerful open source, distributed real-time search and
       analytics engine.
     digest: 70726f4d4a89ab9cc79c5243929903c1eb6a3c6c092953752814f9b32f1cb7b5
@@ -36,7 +36,7 @@ entries:
   envoy:
   - apiVersion: v1
     appVersion: "1.6"
-    created: 2018-05-18T11:02:20.956229-05:00
+    created: 2018-05-18T18:04:59.892392416-05:00
     description: Envoy is an open source edge and service proxy, designed for cloud-native
       applications.
     digest: 256aaacb67fdbaa00ec7bc2aa62bbe7715ca873c69333f9e95ab7ea25f39561c
@@ -57,7 +57,7 @@ entries:
   external-dns:
   - apiVersion: v1
     appVersion: 0.5.0
-    created: 2018-05-18T11:02:20.956785-05:00
+    created: 2018-05-18T18:04:59.89289465-05:00
     description: Configure external DNS servers (AWS Route53, Google CloudDNS and
       others) for Kubernetes Ingresses and Services
     digest: 29b4a7f6572edae7d87ef39e4b3135b6da1649de38696a632bbf0af32bde27d2
@@ -71,7 +71,7 @@ entries:
     version: 0.7.0
   hackmd:
   - apiVersion: v1
-    created: 2018-05-18T11:02:20.957863-05:00
+    created: 2018-05-18T18:04:59.893741714-05:00
     description: A Helm chart for Kubernetes
     digest: 9e47b55661dcb856ce4df526f136dc8c2dd0777ca6d0dfa78b026700141e5eae
     engine: gotpl
@@ -85,7 +85,7 @@ entries:
   ingress-resource:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-05-18T11:02:20.958146-05:00
+    created: 2018-05-18T18:04:59.893952269-05:00
     description: A Helm chart for a Kubernetes Ingress Resource Definition
     digest: 57c27fb6218b6956682d41904b9bf8a18b008522fc741676f0b7cd2b24f6a83e
     name: ingress-resource
@@ -95,7 +95,7 @@ entries:
   kafka:
   - apiVersion: v1
     appVersion: 0.11.0.0
-    created: 2018-05-18T11:02:20.959635-05:00
+    created: 2018-05-18T18:04:59.895051322-05:00
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
       commit log.
     digest: ff57c4b07e603fe44755f4f5be86dcff0c6c4d3e2ff0a3b6d305efdf0565749a
@@ -124,7 +124,7 @@ entries:
   kafka-manager:
   - apiVersion: v1
     appVersion: 1.3.3.16
-    created: 2018-05-18T11:02:20.960242-05:00
+    created: 2018-05-18T18:04:59.895471961-05:00
     description: A Helm chart for Kafka Manager
     digest: a6e0512342749da84b7798ebba4ed0fac72ad87cab865e3f98958b5649309907
     name: kafka-manager
@@ -134,7 +134,7 @@ entries:
   kafka-rest:
   - apiVersion: v1
     appVersion: 4.0.0
-    created: 2018-05-18T11:02:20.960801-05:00
+    created: 2018-05-18T18:04:59.895896492-05:00
     description: A Helm chart for Kafka REST
     digest: ff324d94a88ecf086574974c3f81bea8b6470b71d9c2995f6d36f1d20f5fa552
     name: kafka-rest
@@ -144,16 +144,38 @@ entries:
   kafka-schema-registry:
   - apiVersion: v1
     appVersion: 4.0.0
-    created: 2018-05-18T11:02:20.961945-05:00
+    created: 2018-05-18T18:04:59.896432194-05:00
     description: A Helm chart for Kafka Schema Registry
     digest: 2429e21310897d891d9df72a60224c69924dad9f149900a44933e2009843cd96
     name: kafka-schema-registry
     urls:
     - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/kafka-schema-registry-0.2.0.tgz
     version: 0.2.0
+  kibana:
+  - appVersion: 6.2.4
+    created: 2018-05-18T18:04:59.896796784-05:00
+    description: Kibana is an open source data visualization plugin for Elasticsearch
+    digest: ab757e7b5b6db409e38b62835b587ef2a977373df2ed510cc1b97508f15c609e
+    engine: gotpl
+    home: https://www.elastic.co/products/kibana
+    icon: https://raw.githubusercontent.com/elastic/kibana/master/src/ui/public/icons/kibana-color.svg
+    keywords:
+    - elasticsearch
+    - kibana
+    maintainers:
+    - email: casey@monax.io
+      name: compleatang
+    - email: rtluckie@gmail.com
+      name: rtluckie
+    name: kibana
+    sources:
+    - https://github.com/elastic/kibana
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/kibana-0.6.0.tgz
+    version: 0.6.0
   kubernetes-dashboard:
   - appVersion: 1.7.1
-    created: 2018-05-18T11:02:20.962498-05:00
+    created: 2018-05-18T18:04:59.897195476-05:00
     description: General-purpose web UI for Kubernetes clusters
     digest: ae3c9c02b6dd1434bd4ba5403d9ec2b18981ead28da114040140d12f5a7077b6
     keywords:
@@ -168,7 +190,7 @@ entries:
     version: 0.4.1
   nginx:
   - appVersion: 1.10.2
-    created: 2018-05-18T11:02:20.962914-05:00
+    created: 2018-05-18T18:04:59.89768923-05:00
     description: Chart for the nginx server
     digest: 2fe33f9c538e84128119c0f79a5043cdd6b5f2f460b760d6ff66d9d5ee37b289
     engine: gotpl
@@ -190,7 +212,7 @@ entries:
     version: 0.4.2
   stolon:
   - appVersion: 0.10.0
-    created: 2018-05-18T11:02:20.963508-05:00
+    created: 2018-05-18T18:04:59.898204817-05:00
     description: Stolon - PostgreSQL cloud native High Availability.
     digest: 3667a393b44e068baec7fac015c0221e0dbe1587e53fb205c1a39d5610bc3636
     engine: gotpl
@@ -205,4 +227,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/stolon-0.1.0.tgz
     version: 0.1.0
-generated: 2018-05-18T11:02:20.954485-05:00
+generated: 2018-05-18T18:04:59.890934502-05:00
