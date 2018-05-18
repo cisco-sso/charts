@@ -1,0 +1,99 @@
+# This chart is based in part on:
+# https://github.com/Landoop/kafka-helm-charts/tree/master/charts/confluent-kafka-rest
+
+replicaCount: 1
+
+image:
+  repository: confluentinc/cp-kafka-rest
+  tag: 4.0.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8082
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts: []
+    # - kafka-rest.cluster.local
+  tls: []
+    # - secretName: kafka-rest-tls
+    #   hosts:
+    #     - kafka-rest.cluster.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+  # podAntiAffinity:
+  #   requiredDuringSchedulingIgnoredDuringExecution:
+  #     - topologyKey: "kubernetes.io/hostname"
+  #       labelSelector:
+  #         matchLabels:
+  #           release: kafka-rest
+
+strategy:
+  rollingUpdate:
+    type: RollingUpdate
+    maxUnavailable: 1
+
+exporter:
+  enabled: false
+  image:
+    repository: sscaling/jmx-prometheus-exporter
+    tag: 0.2.0
+    pullPolicy: IfNotPresent
+  path: /metrics
+  port: 9102
+  resources: {}
+
+jmx:
+  enabled: false
+  port: 1099
+
+# ref:
+#   - https://docs.confluent.io/current/kafka-rest/docs/deployment.html#kafka-rest-deployment
+#   - https://github.com/confluentinc/kafka-rest/blob/master/docs/config.rst
+config:
+  bootstrap.servers:
+    PLAINTEXT://kafka-kafka-0.kafka-kafka-headless:9092
+  client.security.protocol: PLAINTEXT
+  cub.kafka.min.brokers: "1"
+  cub.kafka.timeout: "40"
+  debug: "false"
+  heap.opts:
+    -Xms1g -Xmx1g
+  host.name: kafka-rest
+  jvm.performance.opts:
+    -server
+    -XX:+UseG1GC
+    -XX:MaxGCPauseMillis=20
+    -XX:InitiatingHeapOccupancyPercent=35
+    -XX:+DisableExplicitGC
+    -XX:MetaspaceSize=96m
+    -XX:G1HeapRegionSize=16M
+    -XX:MinMetaspaceFreeRatio=50
+    -XX:MaxMetaspaceFreeRatio=80
+    -Djava.awt.headless=true
+  listeners: "http://0.0.0.0:8082"
+  schema.registry.url:
+    http://kafka-schema-registry:8081
+  zookeeper.connect:
+    zookeeper-zookeeper-0.zookeeper-zookeeper-headless:2181

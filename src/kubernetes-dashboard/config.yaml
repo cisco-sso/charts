@@ -1,0 +1,50 @@
+image: gcr.io/google_containers/kubernetes-dashboard-amd64
+imageTag: v1.7.1
+imagePullPolicy: IfNotPresent
+
+replicas: 1
+
+nodeSelector: {}
+
+httpPort: 80
+
+serviceType: ClusterIP
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 50Mi
+  requests:
+    cpu: 100m
+    memory: 50Mi
+
+ingress:
+  enabled: false
+  class: nginx
+  domain: example.com
+  shortname: dashboard
+  externalDns:
+    enabled: false
+  basicAuth:
+    enabled: false
+    secretName: kubernetes-dashboard-basic-auth
+  tls:
+    enabled: false
+    secretName: kubernetes-dashboard-tls
+  lego:
+    enabled: false
+    annotationSuffix: "-staging"
+
+rbac:
+  enabled: false
+  serviceAccountName: default
+
+tolerations:
+#  - key: taintKey
+#    value: taintValue
+#    operator: Equal
+#    effect: NoSchedule
+
+antiAffinity:
+  enabled: false
+  type: Hard

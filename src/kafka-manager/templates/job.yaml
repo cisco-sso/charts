@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    app: {{ template "kafka-manager.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+  name: {{ .Release.Name }}-add-existing-kafka-cluster
+spec:
+  activeDeadlineSeconds: 60
+  template:
+    metadata:
+      labels:
+        app: {{ template "kafka-manager.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      restartPolicy: OnFailure
+      containers:
+          ## ref: https://github.com/yahoo/kafka-manager/issues/244#issuecomment-339606219
+        - name: {{ .Release.Name }}-add-existing-kafka-cluster
+          image: byrnedo/alpine-curl
+          command: [ "/bin/sh", "-xc", "curl --connect-timeout 10 --max-time 10 --retry 10 --retry-delay 0 --retry-max-time 240 -G -XPOST http://kafka-manager:{{ .Values.service.port }}/clusters -d name=kafka -d zkHosts={{ .Values.zookeeperHosts }} -d kafkaVersion={{ .Values.env.KAFKA_VERSION }} -d jmxUser= -d jmxPass= -d tuning.brokerViewUpdatePeriodSeconds=30 -d tuning.clusterManagerThreadPoolSize=2 -d tuning.clusterManagerThreadPoolQueueSize=100 -d tuning.kafkaCommandThreadPoolSize=2 -d tuning.kafkaCommandThreadPoolQueueSize=100 -d tuning.logkafkaCommandThreadPoolSize=2 -d tuning.logkafkaCommandThreadPoolQueueSize=100 -d tuning.logkafkaUpdatePeriodSeconds=30 -d tuning.partitionOffsetCacheTimeoutSecs=5 -d tuning.brokerViewThreadPoolSize=2 -d tuning.brokerViewThreadPoolQueueSize=1000 -d tuning.offsetCacheThreadPoolSize=2 -d tuning.offsetCacheThreadPoolQueueSize=1000 -d tuning.kafkaAdminClientThreadPoolSize=2 -d tuning.kafkaAdminClientThreadPoolQueueSize=1000" ]

@@ -1,21 +1,21 @@
-# k8s-devkit Helm Charts
+# cisco-sso helm charts
 
 ## Add the repo to Helm.
 
 ```
-helm repo add k8s-charts "https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg"
+helm repo add cisco-sso "https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg"
 ```
 
 ## Browse charts hosted by the repo.
 
 ```
-helm search k8s-charts
+helm search cisco-sso
 ```
 
 ## Install a chart from the repo.
 
 ```
-helm install k8s-charts/<ChartName> --name <ReleaseName>
+helm install cisco-sso/<ChartName> --name <ReleaseName>
 ```
 
 ## Contribute a chart to the repo.

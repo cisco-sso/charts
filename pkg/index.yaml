@@ -3,11 +3,206 @@ entries:
   cert-manager-configs:
   - apiVersion: v1
     appVersion: 0.1.0
-    created: 2018-05-14T22:14:06.286881846Z
+    created: 2018-05-17T23:58:00.557811-05:00
     description: A Helm chart for adding Cert-Manager Configurations
     digest: 00b604b0200a8c57804fd1b423eec29ce900bc09e918ae9ce80311b3bc925915
     name: cert-manager-configs
     urls:
     - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/cert-manager-configs-0.1.0.tgz
     version: 0.1.0
-generated: 2018-05-14T22:14:06.28461549Z
+  elasticsearch:
+  - created: 2018-05-17T23:58:00.558528-05:00
+    description: Flexible and powerful open source, distributed real-time search and
+      analytics engine.
+    digest: 70726f4d4a89ab9cc79c5243929903c1eb6a3c6c092953752814f9b32f1cb7b5
+    home: https://www.elastic.co/products/elasticsearch
+    icon: https://static-www.elastic.co/assets/blteb1c97719574938d/logo-elastic-elasticsearch-lt.svg
+    maintainers:
+    - email: christian@jetstack.io
+      name: Christian Simon
+    - email: michael.haselton@gmail.com
+      name: Michael Haselton
+    name: elasticsearch
+    sources:
+    - https://www.elastic.co/products/elasticsearch
+    - https://github.com/jetstack/elasticsearch-pet
+    - https://github.com/giantswarm/kubernetes-elastic-stack
+    - https://github.com/GoogleCloudPlatform/elasticsearch-docker
+    - https://github.com/clockworksoul/helm-elasticsearch
+    - https://github.com/pires/kubernetes-elasticsearch-cluster
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/elasticsearch-0.5.0.tgz
+    version: 0.5.0
+  envoy:
+  - apiVersion: v1
+    appVersion: "1.6"
+    created: 2018-05-17T23:58:00.558917-05:00
+    description: Envoy is an open source edge and service proxy, designed for cloud-native
+      applications.
+    digest: 256aaacb67fdbaa00ec7bc2aa62bbe7715ca873c69333f9e95ab7ea25f39561c
+    home: https://www.envoyproxy.io/
+    icon: https://avatars0.githubusercontent.com/u/30125649
+    keywords:
+    - envoy
+    - proxy
+    maintainers:
+    - email: josdotso@cisco.com
+      name: Joshua M. Dotson
+    name: envoy
+    sources:
+    - https://github.com/envoyproxy/envoy
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/envoy-0.1.0.tgz
+    version: 0.1.0
+  external-dns:
+  - apiVersion: v1
+    appVersion: 0.5.0
+    created: 2018-05-17T23:58:00.559448-05:00
+    description: Configure external DNS servers (AWS Route53, Google CloudDNS and
+      others) for Kubernetes Ingresses and Services
+    digest: 29b4a7f6572edae7d87ef39e4b3135b6da1649de38696a632bbf0af32bde27d2
+    engine: gotpl
+    home: https://github.com/kubernetes-incubator/external-dns
+    name: external-dns
+    sources:
+    - https://github.com/kubernetes-incubator/external-dns
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/external-dns-0.7.0.tgz
+    version: 0.7.0
+  hackmd:
+  - apiVersion: v1
+    created: 2018-05-17T23:58:00.560423-05:00
+    description: A Helm chart for Kubernetes
+    digest: 9e47b55661dcb856ce4df526f136dc8c2dd0777ca6d0dfa78b026700141e5eae
+    engine: gotpl
+    maintainers:
+    - email: yuan-docker@fraction.jp
+      name: OTSUKA, Yuanying
+    name: hackmd
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/hackmd-0.1.0.tgz
+    version: 0.1.0
+  ingress-resource:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-05-17T23:58:00.560684-05:00
+    description: A Helm chart for a Kubernetes Ingress Resource Definition
+    digest: 57c27fb6218b6956682d41904b9bf8a18b008522fc741676f0b7cd2b24f6a83e
+    name: ingress-resource
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/ingress-resource-0.1.0.tgz
+    version: 0.1.0
+  kafka:
+  - apiVersion: v1
+    appVersion: 0.11.0.0
+    created: 2018-05-17T23:58:00.562146-05:00
+    description: Apache Kafka is publish-subscribe messaging rethought as a distributed
+      commit log.
+    digest: ff57c4b07e603fe44755f4f5be86dcff0c6c4d3e2ff0a3b6d305efdf0565749a
+    home: https://kafka.apache.org/
+    icon: https://kafka.apache.org/images/logo.png
+    keywords:
+    - kafka
+    - zookeeper
+    - kafka statefulset
+    maintainers:
+    - email: faraaz@rationalizeit.us
+      name: Faraaz Khan
+    - email: marc.villacorta@gmail.com
+      name: Marc Villacorta
+    - email: ben@spothero.com
+      name: Ben Goldberg
+    name: kafka
+    sources:
+    - https://github.com/kubernetes/charts/tree/master/incubator/zookeeper
+    - https://github.com/Yolean/kubernetes-kafka
+    - https://github.com/confluentinc/cp-docker-images
+    - https://github.com/apache/kafka
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/kafka-0.5.3.tgz
+    version: 0.5.3
+  kafka-manager:
+  - apiVersion: v1
+    appVersion: 1.3.3.16
+    created: 2018-05-17T23:58:00.562722-05:00
+    description: A Helm chart for Kafka Manager
+    digest: a6e0512342749da84b7798ebba4ed0fac72ad87cab865e3f98958b5649309907
+    name: kafka-manager
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/kafka-manager-0.1.0.tgz
+    version: 0.1.0
+  kafka-rest:
+  - apiVersion: v1
+    appVersion: 4.0.0
+    created: 2018-05-17T23:58:00.563205-05:00
+    description: A Helm chart for Kafka REST
+    digest: ff324d94a88ecf086574974c3f81bea8b6470b71d9c2995f6d36f1d20f5fa552
+    name: kafka-rest
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/kafka-rest-0.2.0.tgz
+    version: 0.2.0
+  kafka-schema-registry:
+  - apiVersion: v1
+    appVersion: 4.0.0
+    created: 2018-05-17T23:58:00.563719-05:00
+    description: A Helm chart for Kafka Schema Registry
+    digest: 2429e21310897d891d9df72a60224c69924dad9f149900a44933e2009843cd96
+    name: kafka-schema-registry
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/kafka-schema-registry-0.2.0.tgz
+    version: 0.2.0
+  kubernetes-dashboard:
+  - appVersion: 1.7.1
+    created: 2018-05-17T23:58:00.565307-05:00
+    description: General-purpose web UI for Kubernetes clusters
+    digest: ae3c9c02b6dd1434bd4ba5403d9ec2b18981ead28da114040140d12f5a7077b6
+    keywords:
+    - kubernetes
+    - dashboard
+    maintainers:
+    - email: Kevin.Fox@pnnl.gov
+      name: kfox1111
+    name: kubernetes-dashboard
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/kubernetes-dashboard-0.4.1.tgz
+    version: 0.4.1
+  nginx:
+  - appVersion: 1.10.2
+    created: 2018-05-17T23:58:00.565733-05:00
+    description: Chart for the nginx server
+    digest: 2fe33f9c538e84128119c0f79a5043cdd6b5f2f460b760d6ff66d9d5ee37b289
+    engine: gotpl
+    home: http://www.nginx.org
+    keywords:
+    - nginx
+    - http
+    - web
+    - www
+    - reverse proxy
+    maintainers:
+    - email: containers@bitnami.com
+      name: Bitnami
+    name: nginx
+    sources:
+    - https://github.com/bitnami/bitnami-docker-nginx
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/nginx-0.4.2.tgz
+    version: 0.4.2
+  stolon:
+  - appVersion: 0.10.0
+    created: 2018-05-17T23:58:00.566168-05:00
+    description: Stolon - PostgreSQL cloud native High Availability.
+    digest: c6f7253b71676708ec8f8bff3dd64d837d482be7cfbe235f8a1ec87d675932aa
+    engine: gotpl
+    home: https://github.com/sorintlab/stolon
+    icon: https://i.imgur.com/tIW8sAW.png
+    maintainers:
+    - email: rluckie@cisco.com
+      name: rtluckie
+    name: stolon
+    sources:
+    - https://github.com/sorintlab/stolon
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/stolon-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-05-17T23:58:00.55738-05:00

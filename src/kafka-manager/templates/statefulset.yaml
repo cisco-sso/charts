@@ -1,0 +1,146 @@
+apiVersion: apps/v1beta2
+kind: StatefulSet
+metadata:
+  name: {{ template "kafka-manager.fullname" . }}
+  labels:
+    app: {{ template "kafka-manager.name" . }}
+    chart: {{ template "kafka-manager.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+{{- with .Values.strategy }}
+  strategy:
+{{ toYaml . | indent 4 }}
+{{- end }}
+  selector:
+    matchLabels:
+      app: {{ template "kafka-manager.name" . }}
+      release: {{ .Release.Name }}
+  serviceName: {{ template "kafka-manager.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "kafka-manager.name" . }}
+        release: {{ .Release.Name }}
+      annotations:
+        {{- if and .Values.jmx.enabled .Values.exporter.enabled }}
+        checksum/exporter-config: {{ include (print $.Template.BasePath "/exporter-config.yaml") . | sha256sum }}
+        prometheus.io/path: {{ .Values.exporter.path | quote }}
+        prometheus.io/port: {{ .Values.exporter.port | quote }}
+        prometheus.io/scrape: {{ .Values.exporter.enabled | quote }}
+        {{- end }}
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+
+        {{- if and .Values.jmx.enabled .Values.exporter.enabled }}
+        - name: exporter
+          image: "{{ .Values.exporter.image.repository }}:{{ .Values.exporter.image.tag }}"
+          imagePullPolicy: {{ .Values.exporter.image.pullPolicy }}
+          ports:
+            - name: exporter
+              containerPort: {{ .Values.exporter.port }}
+              protocol: TCP
+          args: 
+          env:
+            - name: SERVICE_PORT
+              value: {{ .Values.exporter.port | quote }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.exporter.path }}
+              port: exporter
+            periodSeconds: 30
+            timeoutSeconds: 30
+            failureThreshold: 2
+            successThreshold: 1
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.exporter.path }}
+              port: exporter
+            periodSeconds: 30
+            timeoutSeconds: 30
+            failureThreshold: 2
+            successThreshold: 1
+          resources:
+{{ toYaml .Values.exporter.resources | indent 12 }}
+          volumeMounts:
+            - name: exporter-config-volume
+              mountPath: /etc/jmx_exporter/config.yml
+              subPath: config.yml
+              readOnly: true
+        {{- end }}
+
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args: 
+            - -Dkafka-manager.zkhosts={{ .Values.zookeeperHosts }}
+          {{ with .Values.args }}
+{{ toYaml . | indent 12 }}
+          {{- end }}
+          ports:
+            - name: http
+              containerPort: 9000
+              protocol: TCP
+            {{- if .Values.jmx.enabled }}
+            - name: jmx
+              containerPort: {{ .Values.jmx.port }}
+              protocol: TCP
+            {{- end }}
+          env:
+            ## Automatically set variables
+            {{- if .Values.jmx.enabled }}
+            - name: JMX_PORT
+              value: {{ .Values.jmx.port | quote }}
+            - name: JMX_OPTS
+              value:
+                -Dcom.sun.management.jmxremote
+                -Dcom.sun.management.jmxremote.authenticate=false
+                -Dcom.sun.management.jmxremote.local.only=false
+                -Dcom.sun.management.jmxremote.port={{ .Values.jmx.port }}
+                -Dcom.sun.management.jmxremote.rmi.port={{ .Values.jmx.port }}
+                -Dcom.sun.management.jmxremote.ssl=false
+            {{- end }}
+            ## User variables
+            {{- range $key, $value := .Values.env }}
+            - name: {{ $key | upper | replace "." "_" }}
+              value: {{ $value | quote }}
+            {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            periodSeconds: 30
+            timeoutSeconds: 30
+            failureThreshold: 6
+            successThreshold: 1
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            periodSeconds: 30
+            timeoutSeconds: 30
+            failureThreshold: 6
+            successThreshold: 1
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+
+    {{- if and .Values.jmx.enabled .Values.exporter.enabled }}
+      volumes:
+        - name: exporter-config-volume
+          configMap:
+            name: {{ .Release.Name }}-exporter
+    {{- end }}

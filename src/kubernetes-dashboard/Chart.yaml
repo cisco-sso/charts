@@ -1,0 +1,10 @@
+appVersion: 1.7.1
+description: General-purpose web UI for Kubernetes clusters
+keywords:
+- kubernetes
+- dashboard
+maintainers:
+- email: Kevin.Fox@pnnl.gov
+  name: kfox1111
+name: kubernetes-dashboard
+version: 0.4.1
