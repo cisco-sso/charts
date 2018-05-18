@@ -1,0 +1,75 @@
+replicaCount: 1
+
+image:
+  repository: hlebalbau/kafka-manager
+  tag: 1.3.3.16
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 9000
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts: []
+    # - kafka-manager.cluster.local
+  tls: []
+    # - secretName: kafka-manager-tls
+    #   hosts:
+    #     - kafka-manager.cluster.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+  # podAntiAffinity:
+  #   requiredDuringSchedulingIgnoredDuringExecution:
+  #     - topologyKey: "kubernetes.io/hostname"
+  #       labelSelector:
+  #         matchLabels:
+  #           release: kafka-manager
+
+strategy:
+  rollingUpdate:
+    type: RollingUpdate
+    maxUnavailable: 1
+
+exporter:
+  enabled: false
+  image:
+    repository: sscaling/jmx-prometheus-exporter
+    tag: 0.2.0
+    pullPolicy: IfNotPresent
+  path: /metrics
+  port: 9102
+  resources: {}
+
+jmx:
+  enabled: false
+  port: 1099
+
+zookeeperHosts: zookeeper-zookeeper-0.zookeeper-zookeeper-headless:2181
+
+env:
+  APPLICATION_SECRET: "random-secret"
+  KAFKA_VERSION: 0.11.0.0
+
+args:
+  - -Dpidfile.path=/dev/null

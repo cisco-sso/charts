@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "kafka-rest.fullname" . }}
+  labels:
+    app: {{ template "kafka-rest.name" . }}
+    chart: {{ template "kafka-rest.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "kafka-rest.name" . }}
+    release: {{ .Release.Name }}

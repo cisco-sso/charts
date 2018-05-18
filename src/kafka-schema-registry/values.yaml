@@ -1,0 +1,100 @@
+# This chart is based in part on:
+# https://github.com/Landoop/kafka-helm-charts/tree/master/charts/confluent-schema-registry
+
+replicaCount: 1
+
+image:
+  repository: confluentinc/cp-schema-registry
+  tag: 4.0.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClsterIP
+  port: 8081
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts: []
+    # - kafka-schema-registry.cluster.local
+  tls: []
+    # - secretName: kafka-schema-registry-tls
+    #   hosts:
+    #     - kafka-schema-registry.cluster.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+  # podAntiAffinity:
+  #   requiredDuringSchedulingIgnoredDuringExecution:
+  #     - topologyKey: "kubernetes.io/hostname"
+  #       labelSelector:
+  #         matchLabels:
+  #           release: kafka-schema-registry
+
+strategy:
+  rollingUpdate:
+    type: RollingUpdate
+    maxUnavailable: 1
+
+exporter:
+  enabled: false
+  image:
+    repository: sscaling/jmx-prometheus-exporter
+    tag: 0.2.0
+    pullPolicy: IfNotPresent
+  path: /metrics
+  port: 9102
+  resources: {}
+
+jmx:
+  enabled: false
+  port: 1099
+
+# ref:
+#   - https://docs.confluent.io/current/schema-registry/docs/deployment.html
+#   - https://github.com/confluentinc/schema-registry/blob/master/docs/config.rst
+config:
+  debug: "false"
+  heap.opts:
+    -Xms1g -Xmx1g
+  host.name:
+    kafka-schema-registry
+  jvm.performance.opts:
+    -server
+    -XX:+UseG1GC
+    -XX:MaxGCPauseMillis=20
+    -XX:InitiatingHeapOccupancyPercent=35
+    -XX:+DisableExplicitGC
+    -XX:MetaspaceSize=96m
+    -XX:G1HeapRegionSize=16M
+    -XX:MinMetaspaceFreeRatio=50
+    -XX:MaxMetaspaceFreeRatio=80
+    -Djava.awt.headless=true
+  kafkastora.bootstrap.servers:
+    PLAINTEXT://kafka-kafka-0.kafka-kafka-headless:9092
+  kafkastore.connection.url:
+    zookeeper-zookeeper-0.zookeeper-zookeeper-headless:2181
+  kafkastore.security.protocol: PLAINTEXT
+  kafkastore.topic.replication.factor: "1"
+  listeners: "http://0.0.0.0:8081"
+  metrics.jmx.prefix: kafka.schema.registry
+  schema.registry.inter.instance.protocol: http
+  schema.registry.zk.namespace: schema_registry

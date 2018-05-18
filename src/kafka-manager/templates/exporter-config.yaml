@@ -1,0 +1,19 @@
+{{- if and .Values.jmx.enabled .Values.exporter.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-exporter
+  labels:
+    app: {{ template "kafka-manager.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+data:
+  config.yml: |-
+    ---
+    hostPort: 127.0.0.1:{{ .Values.jmx.port }}
+    rules:
+      - pattern: ".*"
+    ssl: false
+    startDelaySeconds: 1
+{{- end }}
