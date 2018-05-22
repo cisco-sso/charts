@@ -3,7 +3,7 @@
 ## Add the repo to Helm.
 
 ```
-helm repo add cisco-sso "https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg"
+helm repo add cisco-sso "https://raw.githubusercontent.com/cisco-sso/charts/master/pkg"
 ```
 
 ## Browse charts hosted by the repo.
