@@ -12,9 +12,9 @@ entries:
     version: 0.1.0
   drone:
   - appVersion: 0.8.5
-    created: 2018-05-24T15:00:30.895147621Z
+    created: 2018-05-24T15:22:26.909809099Z
     description: Drone is a Continuous Delivery system built on container technology
-    digest: 259845f5ff5457537a40c2f436e1d9ca3c0aa0a0f2c2d36c895ed129c6f2f171
+    digest: d726eb006c02fe9d2d73b12e942fcc1d17c5fdd050099ed2a448359338e19d2f
     home: https://drone.io/
     icon: https://drone.io/apple-touch-icon.png
     keywords:
