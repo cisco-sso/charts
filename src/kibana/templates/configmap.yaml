@@ -17,7 +17,15 @@ data:
     set -euf -o pipefail
     if [[ -f /tmp/plugins ]]; then
       while read plugin; do
+        echo "Installing plugin: ${plugin}"
         /usr/share/kibana/bin/kibana-plugin install "${plugin}"
       done < /tmp/plugins
     fi
     /usr/local/bin/kibana-docker "$@"
+  config: |
+    # Default Kibana configuration from kibana-docker.
+    server.name: kibana
+    server.host: "0"
+
+    # Custom config properties
+{{ toYaml .Values.config | indent 4 }}

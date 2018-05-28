@@ -51,6 +51,9 @@ spec:
             - name: {{ template "kibana.name" . }}
               mountPath: "/tmp/plugins"
               subPath: plugins
+            - name: {{ template "kibana.name" . }}
+              mountPath: "/usr/share/kibana/config/kibana.yml"
+              subPath: config
 {{- with .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}
