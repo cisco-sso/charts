@@ -10,6 +10,30 @@ entries:
     urls:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/cert-manager-configs-0.1.0.tgz
     version: 0.1.0
+  drone:
+  - appVersion: 0.8.5
+    created: 2018-05-24T15:22:26.909809099Z
+    description: Drone is a Continuous Delivery system built on container technology
+    digest: d726eb006c02fe9d2d73b12e942fcc1d17c5fdd050099ed2a448359338e19d2f
+    home: https://drone.io/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    maintainers:
+    - email: christian.roggia@gmail.com
+      name: christian-roggia
+    name: drone
+    sources:
+    - https://github.com/drone/drone
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/k8s-charts/master/pkg/drone-1.0.5.tgz
+    version: 1.0.5
   elasticsearch:
   - created: 2018-05-18T18:04:59.892039508-05:00
     description: Flexible and powerful open source, distributed real-time search and
