@@ -1,0 +1,8 @@
+apiVersion: v1
+appVersion: "0.2.2"
+description: A Helm chart for Kubernetes
+name: metrics-server
+version: 0.1.0
+sources:
+  - https://github.com/kubernetes-incubator/metrics-server
+  - https://kubernetes.io/docs/tasks/debug-application-cluster/core-metrics-pipeline/
