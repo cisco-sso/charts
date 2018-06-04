@@ -212,6 +212,19 @@ entries:
     urls:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/kubernetes-dashboard-0.4.1.tgz
     version: 0.4.1
+  metrics-server:
+  - apiVersion: v1
+    appVersion: 0.2.2
+    created: 2018-06-04T08:19:20.824497745Z
+    description: A Helm chart for Kubernetes
+    digest: 62ab997f4ea4cc697b79cf3f7bed7d1a8334e371b1863e84e7e06027cebdf498
+    name: metrics-server
+    sources:
+    - https://github.com/kubernetes-incubator/metrics-server
+    - https://kubernetes.io/docs/tasks/debug-application-cluster/core-metrics-pipeline/
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/metrics-server-0.1.0.tgz
+    version: 0.1.0
   nginx:
   - appVersion: 1.10.2
     created: 2018-05-18T18:04:59.89768923-05:00
