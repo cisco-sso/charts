@@ -4,6 +4,7 @@ This chart uses a standard Docker image of Elasticsearch (hub.docker.com/r/black
 Elasticsearch does not communicate with the Kubernetes API, hence no need for RBAC permissions.
 
 ## Warning for previous users
+If you are currently using an earlier version of this Chart you will need to redeploy your Elasticsearch clusters. The discovery method used here is incompatible with using RBAC.
 If you are upgrading to Elasticsearch 6 from the 5.5 version used in this chart before, please note that your cluster needs to do a full cluster restart.
 The simplest way to do that is to delete the installation (keep the PVs) and install this chart again with the new version.
 If you want to avoid doing that upgrade to Elasticsearch 5.6 first before moving on to Elasticsearch 6.0.
@@ -57,13 +58,13 @@ $ kubectl delete pvc -l release=my-release,component=data
 
 ## Configuration
 
-The following tables lists the configurable parameters of the elasticsearch chart and their default values.
+The following table lists the configurable parameters of the elasticsearch chart and their default values.
 
 |              Parameter               |                             Description                             |               Default                |
 | ------------------------------------ | ------------------------------------------------------------------- | ------------------------------------ |
-| `appVersion`                         | Application Version (Elasticsearch)                                 | `5.4`                                |
-| `image.repository`                   | Container image name                                                | `centerforopenscience/elasticsearch` |
-| `image.tag`                          | Container image tag                                                 | `5.4`                                |
+| `appVersion`                         | Application Version (Elasticsearch)                                 | `6.1.1`                              |
+| `image.repository`                   | Container image name                                                | `docker.elastic.co/elasticsearch/elasticsearch-oss` |
+| `image.tag`                          | Container image tag                                                 | `6.1.1`                                |
 | `image.pullPolicy`                   | Container pull policy                                               | `Always`                             |
 | `cluster.name`                       | Cluster name                                                        | `elasticsearch`                      |
 | `cluster.kubernetesDomain`           | Kubernetes cluster domain name                                      | `cluster.local`                      |
@@ -75,13 +76,15 @@ The following tables lists the configurable parameters of the elasticsearch char
 | `client.resources`                   | Client node resources requests & limits                             | `{} - cpu limit must be an integer`  |
 | `client.heapSize`                    | Client node heap size                                               | `512m`                               |
 | `client.podAnnotations`              | Client Deployment annotations                                       | `{}`                                 |
+| `client.nodeSelector`                | Node labels for client pod assignment                               | `{}`                                 |
 | `client.serviceAnnotations`          | Client Service annotations                                          | `{}`                                 |
 | `client.serviceType`                 | Client service type                                                 | `ClusterIP`                          |
-| `master.exposeHttp`                 | Expose http port 9200 on master Pods for monitoring, etc           | `false`                              |
+| `master.exposeHttp`                  | Expose http port 9200 on master Pods for monitoring, etc            | `false`                              |
 | `master.name`                        | Master component name                                               | `master`                             |
 | `master.replicas`                    | Master node replicas (deployment)                                   | `2`                                  |
 | `master.resources`                   | Master node resources requests & limits                             | `{} - cpu limit must be an integer`  |
 | `master.podAnnotations`              | Master Deployment annotations                                       | `{}`                                 |
+| `master.nodeSelector`                | Node labels for master pod assignment                               | `{}`                                 |
 | `master.heapSize`                    | Master node heap size                                               | `512m`                               |
 | `master.name`                        | Master component name                                               | `master`                             |
 | `master.persistence.enabled`         | Master persistent enabled/disabled                                  | `true`                               |
@@ -89,7 +92,7 @@ The following tables lists the configurable parameters of the elasticsearch char
 | `master.persistence.size`            | Master persistent volume size                                       | `4Gi`                                |
 | `master.persistence.storageClass`    | Master persistent volume Class                                      | `nil`                                |
 | `master.persistence.accessMode`      | Master persistent Access Mode                                       | `ReadWriteOnce`                      |
-| `data.exposeHttp`                   | Expose http port 9200 on data Pods for monitoring, etc              | `false`                              |
+| `data.exposeHttp`                    | Expose http port 9200 on data Pods for monitoring, etc              | `false`                              |
 | `data.replicas`                      | Data node replicas (statefulset)                                    | `3`                                  |
 | `data.resources`                     | Data node resources requests & limits                               | `{} - cpu limit must be an integer`  |
 | `data.heapSize`                      | Data node heap size                                                 | `1536m`                              |
@@ -99,6 +102,7 @@ The following tables lists the configurable parameters of the elasticsearch char
 | `data.persistence.storageClass`      | Data persistent volume Class                                        | `nil`                                |
 | `data.persistence.accessMode`        | Data persistent Access Mode                                         | `ReadWriteOnce`                      |
 | `data.podAnnotations`                | Data StatefulSet annotations                                        | `{}`                                 |
+| `data.nodeSelector`                  | Node labels for data pod assignment                                 | `{}`                                 |
 | `data.terminationGracePeriodSeconds` | Data termination grace period (seconds)                             | `3600`                               |
 | `data.antiAffinity`                  | Data anti-affinity policy                                           | `soft`                               |
 

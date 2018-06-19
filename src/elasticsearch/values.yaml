@@ -1,11 +1,11 @@
 # Default values for elasticsearch.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-appVersion: "5.4"
+appVersion: "6.1.1"
 
 image:
   repository: "docker.elastic.co/elasticsearch/elasticsearch-oss"
-  tag: "6.2.2"
+  tag: "6.1.1"
   pullPolicy: "IfNotPresent"
 
 cluster:
@@ -30,15 +30,16 @@ client:
 #  serviceAnnotations:
 #    example: client-svc-foo
 
-  heapSize: "1024m"
-  antiAffinity: "hard"
+  heapSize: "512m"
+  antiAffinity: "soft"
+  nodeSelector: {}
   resources:
     limits:
       cpu: "1"
-      memory: "1280Mi"
+      # memory: "1024Mi"
     requests:
       cpu: "25m"
-      memory: "1152Mi"
+      memory: "512Mi"
 
   ## (dict) If specified, apply these annotations to each client Pod
   # podAnnotations:
@@ -48,21 +49,22 @@ master:
   name: master
   exposeHttp: false
   replicas: 3
-  heapSize: "1024m"
+  heapSize: "512m"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
     name: data
     size: "4Gi"
-    storageClass: "default"
-  antiAffinity: "hard"
+    # storageClass: "ssd"
+  antiAffinity: "soft"
+  nodeSelector: {}
   resources:
     limits:
       cpu: "1"
-      memory: "1280Mi"
+      # memory: "1024Mi"
     requests:
       cpu: "25m"
-      memory: "1152Mi"
+      memory: "512Mi"
 
   ## (dict) If specified, apply these annotations to each master Pod
   # podAnnotations:
@@ -78,31 +80,17 @@ data:
     accessMode: ReadWriteOnce
     name: data
     size: "30Gi"
-    storageClass: "default"
+    # storageClass: "ssd"
   terminationGracePeriodSeconds: 3600
-  antiAffinity: "hard"
+  antiAffinity: "soft"
+  nodeSelector: {}
   resources:
     limits:
       cpu: "1"
-      memory: "2048Mi"
+      # memory: "2048Mi"
     requests:
       cpu: "25m"
-      memory: "1792Mi"
+      memory: "1536Mi"
   ## (dict) If specified, apply these annotations to each data Pod
   # podAnnotations:
   #   example: data-foo
-
-curator:
-  enabled: true
-  image: bobrik/curator
-  imageTag: "5.4.0"
-  imagePullPolicy: IfNotPresent
-  restartPolicy: Never
-  schedule: "0 1 * * *"
-  # Allows modification of the default age-based filter. If you require more
-  # sophisticated filtering, modify the action file specified in
-  # templates/es-curator-config.yaml.
-  age:
-    timestring: "%Y.%m.%d"
-    unit: "days"
-    unitCount: 3
