@@ -72,3 +72,4 @@ Default Values are specified in values.yaml. They can be customized as per user 
 | readiness.timeout       | Yes           | Standard k8s readiness probe attribute timtimeoutSecondseout                                                             |
 
 ```
+
