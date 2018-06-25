@@ -1,0 +1,13 @@
+name: mosquitto
+home: https://mosquitto.org/
+version: 0.1.0
+appVersion: 1.14.12
+description: Mosquitto is an open source implementation of a server for the MQTT protocol.
+icon: https://raw.githubusercontent.com/docker-library/docs/543ed10ed132af12c3662c7a04010d3f36538094/eclipse-mosquitto/logo.png
+sources:
+- https://hub.docker.com/_/eclipse-mosquitto/
+- https://github.com/eclipse/mosquitto
+- https://github.com/kubernetes/charts/tree/master/incubator/zookeeper
+maintainers:
+- name: josdotso
+  email: josdotso@cisco.com

@@ -1,0 +1,15 @@
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ template "mosquitto.fullname" . }}
+  labels:
+    app: {{ template "mosquitto.name" . }}
+    chart: {{ template "mosquitto.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "mosquitto.name" . }}
+      release: {{ .Release.Name }}
+{{ .Values.podDisruptionBudget | indent 2 }}
