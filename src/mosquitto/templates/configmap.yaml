@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "mosquitto.fullname" . }}
+  labels:
+    app: {{ template "mosquitto.name" . }}
+    chart: {{ template "mosquitto.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+{{- range $key, $value := .Values.files }}
+  {{ $key }}: |-
+{{ $value | indent 4 }}
+{{- end }}
