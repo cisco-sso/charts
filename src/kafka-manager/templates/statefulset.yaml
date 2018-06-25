@@ -31,7 +31,6 @@ spec:
         prometheus.io/scrape: {{ .Values.exporter.enabled | quote }}
         {{- end }}
     spec:
-      terminationGracePeriodSeconds: 10
       containers:
 
         {{- if and .Values.jmx.enabled .Values.exporter.enabled }}
@@ -42,7 +41,7 @@ spec:
             - name: exporter
               containerPort: {{ .Values.exporter.port }}
               protocol: TCP
-          args: 
+          args: []
           env:
             - name: SERVICE_PORT
               value: {{ .Values.exporter.port | quote }}
@@ -74,11 +73,11 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          args: 
-            - -Dkafka-manager.zkhosts={{ .Values.zookeeperHosts }}
-          {{ with .Values.args }}
-{{ toYaml . | indent 12 }}
-          {{- end }}
+          command:
+            - sh
+            - -euxc
+            - "sed -i -e 's@INFO@OFF@g' /kafka-manager/conf/logback.xml && /kafka-manager/bin/kafka-manager -Dkafka-manager.zkhosts={{ .Values.zookeeperHosts }} -Dpidfile.path=/dev/null"
+          ## ^ remove this sed hack after the following is implemented in this chart: https://github.com/yahoo/kafka-manager/pull/484
           ports:
             - name: http
               containerPort: 9000
