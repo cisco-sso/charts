@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "vernemq.fullname" . }}
+  labels:
+    app: {{ template "vernemq.name" . }}
+    chart: {{ template "vernemq.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+{{- range $key, $value := .Values.files }}
+  {{ $key }}: |-
+{{ $value | indent 4 }}
+{{- end }}

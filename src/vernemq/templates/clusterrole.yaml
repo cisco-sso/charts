@@ -1,0 +1,15 @@
+{{ if .Values.rbac.create }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ template "vernemq.fullname" . }}
+  labels:
+    app: {{ template "vernemq.name" . }}
+    chart: {{ template "vernemq.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+rules:
+- apiGroups: [""]
+  resources: ["pod"]
+  verbs: ["get", "list", "watch"]
+{{ end }}

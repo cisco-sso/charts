@@ -1,0 +1,113 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: {{ template "vernemq.fullname" . }}
+  labels:
+    app: {{ template "vernemq.name" . }}
+    chart: {{ template "vernemq.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  serviceName: {{ template "vernemq.fullname" . }}-headless
+  replicas: {{ .Values.replicaCount }}
+  terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+  selector:
+    matchLabels:
+      app: {{ template "vernemq.name" . }}
+      release: {{ .Release.Name }}
+  updateStrategy:
+{{ .Values.updateStrategy | indent 4 }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "vernemq.name" . }}
+        release: {{ .Release.Name }}
+      {{- if .Values.podLabels }}
+        ## Custom pod labels
+        {{- range $key, $value := .Values.podLabels }}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }}
+      {{- end }}
+      annotations:
+      {{- if .Values.podAnnotations }}
+        ## Custom pod annotations
+        {{- range $key, $value := .Values.podAnnotations }}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }}
+      {{- end }}
+    spec:
+      securityContext:
+{{ toYaml .Values.securityContext | indent 8 }}
+      containers:
+
+        - name: vernemq
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: 
+{{ toYaml .Values.command | indent 12 }}
+          args: 
+{{ toYaml .Values.args | indent 12 }}
+          ports:
+{{- range $key, $port := .Values.ports }}
+            - name: {{ $key }}
+{{ toYaml $port | indent 14 }}
+{{- end }}
+          livenessProbe:
+{{ toYaml .Values.livenessProbe | indent 12 }}
+          readinessProbe:
+{{ toYaml .Values.readinessProbe | indent 12 }}
+          env:
+            - name: DOCKER_VERNEMQ_KUBERNETES_APP_LABEL
+              value: {{ template "vernemq.name" . }}
+            - name: DOCKER_VERNEMQ_KUBERNETES_NAMESPACE
+              value: {{ .Release.Namespace }}
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          {{- range $key, $value := .Values.env }}
+            - name: {{ $key | toString | upper | replace "." "_" }}
+              value: {{ $value | quote }}
+          {{- end }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+          volumeMounts:
+            - name: data
+              mountPath: /vernemq/data
+{{ toYaml .Values.volumeMounts | indent 12 }}
+
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+      volumes:
+        {{- if not .Values.persistence.enabled }}
+        - name: data
+          emptyDir: {}
+        {{- end }}
+  {{- if .Values.persistence.enabled }}
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+{{ toYaml .Values.persistence.accessModes | indent 10 }}
+        resources:
+          requests:
+            storage: {{ .Values.persistence.size | quote }}
+      {{- if .Values.persistence.storageClass }}
+        {{- if (eq "-" .Values.persistence.storageClass) }}
+        storageClassName: ""
+        {{- else }}
+        storageClassName: "{{ .Values.persistence.storageClass }}"
+        {{- end }}
+      {{- end }}
+  {{- end }}

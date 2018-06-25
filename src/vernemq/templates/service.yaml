@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "vernemq.fullname" . }}
+  labels:
+    app: {{ template "vernemq.name" . }}
+    chart: {{ template "vernemq.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+{{- with .Values.service.annotations }}
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+  {{- range $key, $value := .Values.service.ports }}
+  {{- if $value.enabled }}
+    - name: {{ $key }}
+{{ toYaml $value | indent 6 }}
+  {{- end }}
+  {{- end }}
+  selector:
+    app: {{ template "vernemq.name" . }}
+    release: {{ .Release.Name }}

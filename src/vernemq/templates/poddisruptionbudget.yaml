@@ -1,0 +1,15 @@
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ template "vernemq.fullname" . }}
+  labels:
+    app: {{ template "vernemq.name" . }}
+    chart: {{ template "vernemq.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "vernemq.name" . }}
+      release: {{ .Release.Name }}
+{{ .Values.podDisruptionBudget | indent 2 }}
