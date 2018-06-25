@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: hlebalbau/kafka-manager
-  tag: 1.3.3.16
+  tag: 1.3.3.17
   pullPolicy: IfNotPresent
 
 service:
@@ -65,11 +65,8 @@ jmx:
   enabled: false
   port: 1099
 
-zookeeperHosts: zookeeper-zookeeper-0.zookeeper-zookeeper-headless:2181
+zookeeperHosts: zookeeper:2181/kafka
 
 env:
   APPLICATION_SECRET: "random-secret"
   KAFKA_VERSION: 0.11.0.0
-
-args:
-  - -Dpidfile.path=/dev/null
