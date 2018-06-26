@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "mosquitto.fullname" . }}
+  labels:
+    app: {{ template "mosquitto.name" . }}
+    chart: {{ template "mosquitto.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+{{- with .Values.service.annotations }}
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+  {{- range $key, $value := .Values.service.ports }}
+  {{- if $value.enabled }}
+    - name: {{ $key }}
+{{ toYaml $value | indent 6 }}
+  {{- end }}
+  {{- end }}
+  selector:
+    app: {{ template "mosquitto.name" . }}
+    release: {{ .Release.Name }}
