@@ -326,7 +326,7 @@ entries:
     sources:
     - https://github.com/bitnami/bitnami-docker-nginx
     urls:
-    - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/nginx-0.4.2.tgz
+    - https://github.com/erikburgess/charts/raw/nginx-fixes/pkg/nginx-0.4.2.tgz
     version: 0.4.2
   stolon:
   - appVersion: 0.10.0
