@@ -1,17 +1,5 @@
-appVersion: 1.10.2
-description: Chart for the nginx server
-engine: gotpl
-home: http://www.nginx.org
-keywords:
-- nginx
-- http
-- web
-- www
-- reverse proxy
-maintainers:
-- email: containers@bitnami.com
-  name: Bitnami
+apiVersion: v1
+appVersion: "1.0"
+description: A Helm chart for Kubernetes
 name: nginx
-sources:
-- https://github.com/bitnami/bitnami-docker-nginx
-version: 0.5.0
+version: 0.1.0
