@@ -1,12 +1,14 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "fullname" . -}}
+{{- $fullName := include "nginx.fullname" . -}}
+{{- $servicePort := .Values.service.port -}}
+{{- $ingressPath := .Values.ingress.path -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    app: {{ $fullName }}
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    app: {{ template "nginx.name" . }}
+    chart: {{ template "nginx.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 {{- with .Values.ingress.annotations }}
@@ -29,7 +31,7 @@ spec:
     - host: {{ . }}
       http:
         paths:
-          - path: /
+          - path: {{ $ingressPath }}
             backend:
               serviceName: {{ $fullName }}
               servicePort: http
