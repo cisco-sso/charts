@@ -127,6 +127,13 @@ persistence:
   ##
   mountPath: /opt/kafka/data  # TODO
 
+## Mounting secrets. Useful for JAAS/Kerberos.
+##
+secrets:
+  enabled: false
+  mountPath: /opt/kafka/secrets
+  secretName: kafka-secrets
+
 ## Use an alternate scheduler, e.g. "stork".
 ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
 ##
@@ -185,6 +192,8 @@ configurationOverrides:
 
 env:
   KAFKA_JMX_PORT: 1099
+  ## Example for passing JAAS config.
+  # KAFKA_OPTS: -Djava.security.auth.login.config=/opt/kafka/secrets/kafka_server_jaas.conf
 
 exporters:
 

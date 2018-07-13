@@ -143,6 +143,11 @@ spec:
           volumeMounts:
             - name: data
               mountPath: {{ .Values.persistence.mountPath }}
+            {{- if (.Values.secrets) and (.Values.secrets.enabled) }}
+            - name: secrets
+              mountPath: {{ .Values.secrets.mountPath }}
+              readOnly: true
+            {{- end }}
 
 {{- if .Values.exporters.jmx.enabled }}
         - name: jmx-exporter
@@ -220,6 +225,11 @@ spec:
 {{ toYaml . | indent 8 }}
     {{- end }}
       volumes:
+      {{- if (.Values.secrets) and (.Values.secrets.enabled) }}
+        - name: secrets
+          secret:
+            secretName: {{ .Values.secrets.secretName }}
+      {{- end }}
       {{- if not .Values.persistence.enabled }}
         - name: data
           emptyDir: {}
