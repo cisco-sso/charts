@@ -127,12 +127,12 @@ persistence:
   ##
   mountPath: /opt/kafka/data  # TODO
 
-## Mounting secrets. Useful for JAAS/Kerberos.
+## Mounting secret. Useful for JAAS/Kerberos.
 ##
-secrets:
+secret:
   enabled: false
-  mountPath: /opt/kafka/secrets
-  secretName: kafka-secrets
+  mountPath: /opt/kafka/secret
+  secretName: kafka-secret
 
 ## Use an alternate scheduler, e.g. "stork".
 ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/

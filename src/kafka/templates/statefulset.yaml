@@ -143,9 +143,9 @@ spec:
           volumeMounts:
             - name: data
               mountPath: {{ .Values.persistence.mountPath }}
-            {{- if (.Values.secrets) and (.Values.secrets.enabled) }}
-            - name: secrets
-              mountPath: {{ .Values.secrets.mountPath }}
+            {{- if (.Values.secret) and (.Values.secret.enabled) }}
+            - name: secret
+              mountPath: {{ .Values.secret.mountPath }}
               readOnly: true
             {{- end }}
 
@@ -225,10 +225,10 @@ spec:
 {{ toYaml . | indent 8 }}
     {{- end }}
       volumes:
-      {{- if (.Values.secrets) and (.Values.secrets.enabled) }}
-        - name: secrets
+      {{- if (.Values.secret) and (.Values.secret.enabled) }}
+        - name: secret
           secret:
-            secretName: {{ .Values.secrets.secretName }}
+            secretName: {{ .Values.secret.secretName }}
       {{- end }}
       {{- if not .Values.persistence.enabled }}
         - name: data
