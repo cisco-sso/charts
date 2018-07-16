@@ -57,4 +57,3 @@ affinity: {}
 #       fastcgi_index index.php;
 #       include fastcgi.conf;
 #     }
-#   }
