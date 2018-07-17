@@ -22,10 +22,7 @@ data:
       done < /tmp/plugins
     fi
     /usr/local/bin/kibana-docker "$@"
-  config: |
-    # Default Kibana configuration from kibana-docker.
-    server.name: kibana
-    server.host: "0"
-
-    # Custom config properties
-{{ toYaml .Values.config | indent 4 }}
+{{- range $key, $value := .Values.configFiles }}
+  {{ $key }}: |
+{{ toYaml $value | default "{}" | indent 4 }}
+{{- end -}}
