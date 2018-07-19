@@ -76,26 +76,12 @@ spec:
             - mountPath: /files/initial-config.properties
               name: {{ template "openam.fullname" . }}-initial-config-configmap
               subPath: initial-config.properties
-            - mountPath: /bin/configure.sh
-              name: {{ template "openam.fullname" . }}-configure-configmap
-              subPath: configure.sh
-            - mountPath: /bin/run_me.sh
-              name: {{ template "openam.fullname" . }}-run-configmap
-              subPath: run_me.sh
             - mountPath: {{ .Values.env.BASE_DIR }}
               name: {{ template "openam.fullname" . }}-pvc
       volumes:
       - name: {{ template "openam.fullname" . }}-initial-config-configmap
         ConfigMap:
           name: {{ template "openam.fullname" . }}-initial-config
-      - name: {{ template "openam.fullname" . }}-configure-configmap
-        ConfigMap:
-          name: {{ template "openam.fullname" . }}-configure
-          defaultMode: 511
-      - name: {{ template "openam.fullname" . }}-run-configmap
-        ConfigMap:
-          name: {{ template "openam.fullname" . }}-run
-          defaultMode: 511
   volumeClaimTemplates:
   - metadata:
       name: {{ template "openam.fullname" . }}-pvc

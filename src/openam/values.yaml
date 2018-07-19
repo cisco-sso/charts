@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: wdijkerman/openam
-  tag: 13.0.0
+  repository: deepakr11/openam
+  tag: 0.1.0
   pullPolicy: Always
 
 service:
@@ -14,13 +14,13 @@ service:
   port: 8080
 
 ingress:
-  enabled: true
+  enabled: false
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - openam.default.svc.cluster.local
+    - openam.default.svc
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -32,11 +32,11 @@ resources: {}
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
-  #  cpu: 100m
-  #  memory: 128Mi
+  #  cpu: 1
+  #  memory: 1768Mi
   # requests:
   #  cpu: 100m
-  #  memory: 128Mi
+  #  memory: 1768Mi
 
 nodeSelector: {}
 
@@ -57,10 +57,10 @@ env:
   AM_PWD: password
   MAX_HEAP: 1g
 
-cookieDomain: default.svc.cluster.local
+cookieDomain: default.svc
 
 server:
-  url: http://openam.default.svc.cluster.local
+  url: http://openam.default.svc
 
 volumeClaim: 
   accessMode: ReadWriteOnce
@@ -88,7 +88,7 @@ livenessProbe:
   successThreshold: 1
 readinessProbe:
   enabled: false
-  initialDelaySeconds: 10
+  initialDelaySeconds: 30
   periodSeconds: 30
   timeoutSeconds: 10
   failureThreshold: 6

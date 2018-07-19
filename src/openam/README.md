@@ -16,7 +16,7 @@ helm install --name openam .
 ## Accessing OpenAM UI after installation
 Once chart is installed with default values.yaml, OpenAM GUI can be accessed using below url. URL can be customized in values.yaml. 
 ```
-http://openam.default.svc.cluster.local
+http://openam.default.svc
 ```
 
 ## Options in values.yaml
