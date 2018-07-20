@@ -4,10 +4,14 @@ entries:
   - apiVersion: v1
     appVersion: 0.1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.142853498-05:00
 =======
     created: 2018-07-17T21:21:27.198568263+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.800306861+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: A Helm chart for adding Cert-Manager Configurations
     digest: 00b604b0200a8c57804fd1b423eec29ce900bc09e918ae9ce80311b3bc925915
     name: cert-manager-configs
@@ -17,10 +21,14 @@ entries:
   drone:
   - appVersion: 0.8.5
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.143405748-05:00
 =======
     created: 2018-07-17T21:21:27.198983387+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.800704002+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Drone is a Continuous Delivery system built on container technology
     digest: d726eb006c02fe9d2d73b12e942fcc1d17c5fdd050099ed2a448359338e19d2f
     home: https://drone.io/
@@ -45,10 +53,14 @@ entries:
   elasticsearch:
   - appVersion: 6.1.1
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.144657733-05:00
 =======
     created: 2018-07-17T21:21:27.21042974+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.812447492+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Flexible and powerful open source, distributed real-time search and
       analytics engine.
     digest: 28e498280f95f2a7347509c16f44226b79d789ac8930f080f40106c0b11223c9
@@ -73,10 +85,14 @@ entries:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/elasticsearch-1.1.0.tgz
     version: 1.1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
   - created: 2018-07-26T17:21:13.144034819-05:00
 =======
   - created: 2018-07-17T21:21:27.209971096+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+  - created: 2018-07-20T08:23:32.811968541+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Flexible and powerful open source, distributed real-time search and
       analytics engine.
     digest: 70726f4d4a89ab9cc79c5243929903c1eb6a3c6c092953752814f9b32f1cb7b5
@@ -102,10 +118,14 @@ entries:
   - apiVersion: v1
     appVersion: "1.6"
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.145043176-05:00
 =======
     created: 2018-07-17T21:21:27.210712883+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.812737822+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Envoy is an open source edge and service proxy, designed for cloud-native
       applications.
     digest: 256aaacb67fdbaa00ec7bc2aa62bbe7715ca873c69333f9e95ab7ea25f39561c
@@ -127,10 +147,14 @@ entries:
   - apiVersion: v1
     appVersion: 0.5.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.145463575-05:00
 =======
     created: 2018-07-17T21:21:27.211042509+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.813100472+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Configure external DNS servers (AWS Route53, Google CloudDNS and
       others) for Kubernetes Ingresses and Services
     digest: 29b4a7f6572edae7d87ef39e4b3135b6da1649de38696a632bbf0af32bde27d2
@@ -146,10 +170,14 @@ entries:
   - apiVersion: v1
     appVersion: 6.3.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.145828572-05:00
 =======
     created: 2018-07-17T21:21:27.211326229+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.81339971+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: A Helm chart to collect Kubernetes logs with filebeat
     digest: 8c89a6347d837f19638a463079075f24cb3e7c9a4e71be73c8bd8e466acef1da
     home: https://www.elastic.co/products/beats/filebeat
@@ -168,10 +196,14 @@ entries:
   hackmd:
   - apiVersion: v1
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.146669674-05:00
 =======
     created: 2018-07-17T21:21:27.21203161+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.814161026+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: A Helm chart for Kubernetes
     digest: 9e47b55661dcb856ce4df526f136dc8c2dd0777ca6d0dfa78b026700141e5eae
     engine: gotpl
@@ -186,10 +218,14 @@ entries:
   - apiVersion: v1
     appVersion: "1.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.146903645-05:00
 =======
     created: 2018-07-17T21:21:27.212179676+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.814315622+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: A Helm chart for a Kubernetes Ingress Resource Definition
     digest: 57c27fb6218b6956682d41904b9bf8a18b008522fc741676f0b7cd2b24f6a83e
     name: ingress-resource
@@ -199,6 +235,7 @@ entries:
   kafka:
   - apiVersion: v1
     appVersion: 0.11.0.0
+<<<<<<< HEAD
 <<<<<<< HEAD
     created: 2018-07-26T17:21:13.153208139-05:00
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
@@ -232,6 +269,9 @@ entries:
 =======
     created: 2018-07-17T21:21:27.216752729+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.818133613+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
       commit log.
     digest: 7d9d0e449f6090192fdfc9275a343a359f0b3da01c50df365ec17fcf82fb2f00
@@ -260,10 +300,14 @@ entries:
   - apiVersion: v1
     appVersion: 0.11.0.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.149579737-05:00
 =======
     created: 2018-07-17T21:21:27.214561732+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.817085375+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
       commit log.
     digest: d6019aff553d6c5ec2292ff097cfe858bda5bb6bd04098d180683b031dc240a9
@@ -292,10 +336,14 @@ entries:
   - apiVersion: v1
     appVersion: 0.11.0.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.148119111-05:00
 =======
     created: 2018-07-17T21:21:27.213556804+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.815720116+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
       commit log.
     digest: ff57c4b07e603fe44755f4f5be86dcff0c6c4d3e2ff0a3b6d305efdf0565749a
@@ -325,10 +373,14 @@ entries:
   - apiVersion: v1
     appVersion: 1.3.3.17
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.15421303-05:00
 =======
     created: 2018-07-17T21:21:27.217971523+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.820385944+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: A Helm chart for Kafka Manager
     digest: bd77acb551915604207ab4d097f2223c3bc09533e62c30494d22e50c7e6faab5
     name: kafka-manager
@@ -338,10 +390,14 @@ entries:
   - apiVersion: v1
     appVersion: 1.3.3.16
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.153696214-05:00
 =======
     created: 2018-07-17T21:21:27.217608676+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.820027769+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: A Helm chart for Kafka Manager
     digest: a6e0512342749da84b7798ebba4ed0fac72ad87cab865e3f98958b5649309907
     name: kafka-manager
@@ -352,10 +408,14 @@ entries:
   - apiVersion: v1
     appVersion: 4.0.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.154642825-05:00
 =======
     created: 2018-07-17T21:21:27.218317455+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.821227627+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: A Helm chart for Kafka REST
     digest: ff324d94a88ecf086574974c3f81bea8b6470b71d9c2995f6d36f1d20f5fa552
     name: kafka-rest
@@ -366,10 +426,14 @@ entries:
   - apiVersion: v1
     appVersion: 4.0.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.155072735-05:00
 =======
     created: 2018-07-17T21:21:27.218643626+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.821841853+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: A Helm chart for Kafka Schema Registry
     digest: 2429e21310897d891d9df72a60224c69924dad9f149900a44933e2009843cd96
     name: kafka-schema-registry
@@ -379,12 +443,16 @@ entries:
   kibana:
   - appVersion: 6.2.4
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.155437895-05:00
 =======
     created: 2018-07-17T21:21:27.219160595+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.822666691+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Kibana is an open source data visualization plugin for Elasticsearch
-    digest: 3e0f467585ee121c1fce672e92b0e330d278e21ca84bcaeb93714d847fb6f1c1
+    digest: 08f8b9387ac2171a26311b941bb6eb66c70e379bc6e721b16af7bd8110e05523
     engine: gotpl
     home: https://www.elastic.co/products/kibana
     icon: https://raw.githubusercontent.com/elastic/kibana/master/src/ui/public/icons/kibana-color.svg
@@ -403,7 +471,7 @@ entries:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/kibana-0.7.0.tgz
     version: 0.7.0
   - appVersion: 6.2.4
-    created: 2018-07-17T21:21:27.218903063+05:30
+    created: 2018-07-20T08:23:32.822357258+05:30
     description: Kibana is an open source data visualization plugin for Elasticsearch
     digest: e033c43ecf5615dedc1cfdf2de1d9fc8e1f57e06c779e9212e98f2848385145b
     engine: gotpl
@@ -426,10 +494,14 @@ entries:
   kubernetes-dashboard:
   - appVersion: 1.7.1
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.155828757-05:00
 =======
     created: 2018-07-17T21:21:27.219458838+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.822960909+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: General-purpose web UI for Kubernetes clusters
     digest: ae3c9c02b6dd1434bd4ba5403d9ec2b18981ead28da114040140d12f5a7077b6
     keywords:
@@ -446,10 +518,14 @@ entries:
   - apiVersion: v1
     appVersion: 0.2.2
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.156085836-05:00
 =======
     created: 2018-07-17T21:21:27.219626346+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.823133679+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: A Helm chart for Kubernetes
     digest: 68b290b68f03f517ba328d8843cb7e875a12459285f400c882e9d89919baf571
     name: metrics-server
@@ -462,10 +538,14 @@ entries:
   nginx:
   - appVersion: 1.10.2
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.156436135-05:00
 =======
     created: 2018-07-17T21:21:27.2198641+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.82336032+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Chart for the nginx server
     digest: 2fe33f9c538e84128119c0f79a5043cdd6b5f2f460b760d6ff66d9d5ee37b289
     engine: gotpl
@@ -501,10 +581,14 @@ entries:
   stolon:
   - appVersion: 0.10.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.158138984-05:00
 =======
     created: 2018-07-17T21:21:27.220859282+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.825249135+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Stolon - PostgreSQL cloud native High Availability.
     digest: 398b2d3cac4bead9de0ed3e3573de555ad5cc7d3f1e534058eefdd472ac8a465
     engine: gotpl
@@ -524,10 +608,14 @@ entries:
     version: 0.2.0
   - appVersion: 0.10.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.157708661-05:00
 =======
     created: 2018-07-17T21:21:27.220528171+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.824622387+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Stolon - PostgreSQL cloud native High Availability.
     digest: 1debf5dfc8c31f6a9a030241bb6503b9dc0ab33644ee7b1b0153d4dd7e1df80c
     engine: gotpl
@@ -547,10 +635,14 @@ entries:
     version: 0.1.1
   - appVersion: 0.10.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-26T17:21:13.157222273-05:00
 =======
     created: 2018-07-17T21:21:27.220175902+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+    created: 2018-07-20T08:23:32.823975256+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
     description: Stolon - PostgreSQL cloud native High Availability.
     digest: 3667a393b44e068baec7fac015c0221e0dbe1587e53fb205c1a39d5610bc3636
     engine: gotpl
@@ -565,6 +657,7 @@ entries:
     urls:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/stolon-0.1.0.tgz
     version: 0.1.0
+<<<<<<< HEAD
 <<<<<<< HEAD
   zookeeper:
   - appVersion: 3.4.10
@@ -590,3 +683,6 @@ generated: 2018-07-26T17:21:13.142376519-05:00
 =======
 generated: 2018-07-17T21:21:27.198353201+05:30
 >>>>>>> [kibana] Update config file addition pattern
+=======
+generated: 2018-07-20T08:23:32.800058418+05:30
+>>>>>>> Renamed variable 'configFiles' to 'files'
