@@ -1,23 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "kafka.fullname" . }}-headless
+  name: {{ include "kafka.fullname" . }}-headless
   labels:
-    app: {{ template "kafka.name" . }}
-    chart: {{ template "kafka.chart" . }}
+    app: {{ include "kafka.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
   annotations:
     service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
 spec:
-  clusterIP: None
   ports:
-{{- range $key, $port := .Values.ports }}
-    - name: {{ $key }}
-      port: {{ $port.containerPort }}
-      targetPort: {{ $port.name }}
-      protocol: {{ $port.protocol }}
-{{- end }}
+  - name: broker
+    port: 9092
+  clusterIP: None
   selector:
-    app: {{ template "kafka.name" . }}
+    app: {{ include "kafka.name" . }}
     release: {{ .Release.Name }}
