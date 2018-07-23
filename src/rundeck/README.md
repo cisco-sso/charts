@@ -66,5 +66,6 @@ Default Values are specified in values.yaml. They can be customized as per user 
 | readinessProbe.failureThreshold   | Yes      | Standard k8s readiness probe attribute failureThreshold                                                             |
 | readinessProbe.successThreshold   | Yes      | Standard k8s readiness probe attribute successThreshold                                                             |
 | secret.enabled                    | No       | if true, ssh secret needs to be provided. Same would be copied into container for communication with remote nodes   |
+| keys.storage.type                 | Yes      | Storage preference type for ssh keys. Can be file or db. If "db" is set, then make sure to use external DB          |
  
 ```

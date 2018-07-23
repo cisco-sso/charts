@@ -131,6 +131,9 @@ data:
     dataSource.url = {{ .Values.datasource.url }}
     dataSource.username={{ .Values.env.DB_USER }}
     dataSource.password={{ .Values.env.DB_PASS }}
+    rundeck.storage.provider.1.type={{ .Values.keys.storage.type }}
+    rundeck.storage.provider.1.path=/
+    rundeck.storage.provider.1.config.baseDir={{ .Values.env.SHARED_STORAGE }}/storage
   project.properties: |-
     project.name={{ .Values.env.RD_PROJECT }}
     project.ssh-authentication=privateKey

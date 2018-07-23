@@ -67,7 +67,7 @@ env:
   RD_PROJECT: DEFAULT
   RUNDECK_INSTALL_DIR: /opt/rundeck
   RSA_KEY_DIR: /var/lib/rundeck/.ssh
-  JAVA_OPTIONS: -Xmx256m -Xms128m -XX:MaxMetaspaceSize=256m -XX:+PrintFlagsFinal
+  JAVA_OPTIONS: -XX:MaxPermSize=256m -Xmx512m -Xms256m -XX:MaxMetaspaceSize=256m -XX:+PrintFlagsFinal
 #UID: 1000
 #GID: 1000
 
@@ -109,3 +109,7 @@ readinessProbe:
   successThreshold: 1
 secret:
   enabled: false
+#storage preference type for ssh keys. can be file or db
+keys: 
+  storage: 
+    type: file
