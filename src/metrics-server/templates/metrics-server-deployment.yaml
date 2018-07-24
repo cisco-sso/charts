@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: {{ template "metrics-server.fullname" . }}
@@ -17,25 +17,17 @@ spec:
         app: {{ template "metrics-server.fullname" . }}
         release: {{ .Release.Name }}
     spec:
+      serviceAccountName: {{ template "metrics-server.serviceAccountName" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
-          {{- range .Values.image.command }}
-          - {{ . }}
-          {{- end }}
-      resources:
+            - /metrics-server
+            {{- if .Values.image.custom_command_args }}
+            - --source=kubernetes.summary_api:''{{ .Values.image.custom_command_args }}
+            {{- else }}
+            - --source=kubernetes.summary_api:''
+            {{- end }}
+          resources:
 {{ toYaml .Values.resources | indent 12 }}
-    {{- with .Values.nodeSelector }}
-      nodeSelector:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.affinity }}
-      affinity:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
-      tolerations:
-{{ toYaml . | indent 8 }}
-    {{- end }}
