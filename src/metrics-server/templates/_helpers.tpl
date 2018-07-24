@@ -40,6 +40,14 @@ heritage: {{ .Release.Service }}
 {{- end -}}
 
 {{/*
+Create a service name that defaults to app name.
+We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+*/}}
+{{- define "metrics-server.service.fullname" -}}
+{{- .Values.service.nameOverride | default .Chart.Name }}
+{{- end -}}
+
+{{/*
 Create the name of the service account to use
 */}}
 {{- define "metrics-server.serviceAccountName" -}}
