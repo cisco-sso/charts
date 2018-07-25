@@ -4,10 +4,14 @@ entries:
   - apiVersion: v1
     appVersion: 0.1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.223667611Z
 =======
     created: 2018-07-03T18:38:19.512573446Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.349916844Z
+>>>>>>> Ran Awake
     description: A Helm chart for adding Cert-Manager Configurations
     digest: 00b604b0200a8c57804fd1b423eec29ce900bc09e918ae9ce80311b3bc925915
     name: cert-manager-configs
@@ -17,10 +21,14 @@ entries:
   drone:
   - appVersion: 0.8.5
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.226362067Z
 =======
     created: 2018-07-03T18:38:19.516309302Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.354492461Z
+>>>>>>> Ran Awake
     description: Drone is a Continuous Delivery system built on container technology
     digest: d726eb006c02fe9d2d73b12e942fcc1d17c5fdd050099ed2a448359338e19d2f
     home: https://drone.io/
@@ -45,10 +53,14 @@ entries:
   elasticsearch:
   - appVersion: 6.1.1
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.240027665Z
 =======
     created: 2018-07-03T18:38:19.523907919Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.366575332Z
+>>>>>>> Ran Awake
     description: Flexible and powerful open source, distributed real-time search and
       analytics engine.
     digest: 28e498280f95f2a7347509c16f44226b79d789ac8930f080f40106c0b11223c9
@@ -73,10 +85,14 @@ entries:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/elasticsearch-1.1.0.tgz
     version: 1.1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
   - created: 2018-07-13T18:12:06.236125817Z
 =======
   - created: 2018-07-03T18:38:19.519931865Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+  - created: 2018-07-25T10:19:03.360337299Z
+>>>>>>> Ran Awake
     description: Flexible and powerful open source, distributed real-time search and
       analytics engine.
     digest: 70726f4d4a89ab9cc79c5243929903c1eb6a3c6c092953752814f9b32f1cb7b5
@@ -102,10 +118,14 @@ entries:
   - apiVersion: v1
     appVersion: "1.6"
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.242100858Z
 =======
     created: 2018-07-03T18:38:19.527200007Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.375587588Z
+>>>>>>> Ran Awake
     description: Envoy is an open source edge and service proxy, designed for cloud-native
       applications.
     digest: 256aaacb67fdbaa00ec7bc2aa62bbe7715ca873c69333f9e95ab7ea25f39561c
@@ -127,10 +147,14 @@ entries:
   - apiVersion: v1
     appVersion: 0.5.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.244328184Z
 =======
     created: 2018-07-03T18:38:19.530445141Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.385249179Z
+>>>>>>> Ran Awake
     description: Configure external DNS servers (AWS Route53, Google CloudDNS and
       others) for Kubernetes Ingresses and Services
     digest: 29b4a7f6572edae7d87ef39e4b3135b6da1649de38696a632bbf0af32bde27d2
@@ -146,10 +170,14 @@ entries:
   - apiVersion: v1
     appVersion: 6.3.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.246240938Z
 =======
     created: 2018-07-03T18:38:19.533682085Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.395306248Z
+>>>>>>> Ran Awake
     description: A Helm chart to collect Kubernetes logs with filebeat
     digest: 8c89a6347d837f19638a463079075f24cb3e7c9a4e71be73c8bd8e466acef1da
     home: https://www.elastic.co/products/beats/filebeat
@@ -168,10 +196,14 @@ entries:
   hackmd:
   - apiVersion: v1
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.248642194Z
 =======
     created: 2018-07-03T18:38:19.537804885Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.406249389Z
+>>>>>>> Ran Awake
     description: A Helm chart for Kubernetes
     digest: 9e47b55661dcb856ce4df526f136dc8c2dd0777ca6d0dfa78b026700141e5eae
     engine: gotpl
@@ -186,10 +218,14 @@ entries:
   - apiVersion: v1
     appVersion: "1.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.25032025Z
 =======
     created: 2018-07-03T18:38:19.542290942Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.410869301Z
+>>>>>>> Ran Awake
     description: A Helm chart for a Kubernetes Ingress Resource Definition
     digest: 57c27fb6218b6956682d41904b9bf8a18b008522fc741676f0b7cd2b24f6a83e
     name: ingress-resource
@@ -199,6 +235,7 @@ entries:
   kafka:
   - apiVersion: v1
     appVersion: 0.11.0.0
+<<<<<<< HEAD
 <<<<<<< HEAD
     created: 2018-07-13T18:12:06.261048564Z
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
@@ -232,6 +269,9 @@ entries:
 =======
     created: 2018-07-03T18:38:19.554512222Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.420317504Z
+>>>>>>> Ran Awake
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
       commit log.
     digest: d6019aff553d6c5ec2292ff097cfe858bda5bb6bd04098d180683b031dc240a9
@@ -260,10 +300,14 @@ entries:
   - apiVersion: v1
     appVersion: 0.11.0.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.254471315Z
 =======
     created: 2018-07-03T18:38:19.549406928Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.415652045Z
+>>>>>>> Ran Awake
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
       commit log.
     digest: ff57c4b07e603fe44755f4f5be86dcff0c6c4d3e2ff0a3b6d305efdf0565749a
@@ -293,10 +337,14 @@ entries:
   - apiVersion: v1
     appVersion: 1.3.3.17
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.266547374Z
 =======
     created: 2018-07-03T18:38:19.561600782Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.429569623Z
+>>>>>>> Ran Awake
     description: A Helm chart for Kafka Manager
     digest: bd77acb551915604207ab4d097f2223c3bc09533e62c30494d22e50c7e6faab5
     name: kafka-manager
@@ -306,10 +354,14 @@ entries:
   - apiVersion: v1
     appVersion: 1.3.3.16
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.263832415Z
 =======
     created: 2018-07-03T18:38:19.558214761Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.424510893Z
+>>>>>>> Ran Awake
     description: A Helm chart for Kafka Manager
     digest: a6e0512342749da84b7798ebba4ed0fac72ad87cab865e3f98958b5649309907
     name: kafka-manager
@@ -320,10 +372,14 @@ entries:
   - apiVersion: v1
     appVersion: 4.0.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.268778593Z
 =======
     created: 2018-07-03T18:38:19.564895652Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.436717555Z
+>>>>>>> Ran Awake
     description: A Helm chart for Kafka REST
     digest: ff324d94a88ecf086574974c3f81bea8b6470b71d9c2995f6d36f1d20f5fa552
     name: kafka-rest
@@ -334,10 +390,14 @@ entries:
   - apiVersion: v1
     appVersion: 4.0.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.27170906Z
 =======
     created: 2018-07-03T18:38:19.568161636Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.441583855Z
+>>>>>>> Ran Awake
     description: A Helm chart for Kafka Schema Registry
     digest: 2429e21310897d891d9df72a60224c69924dad9f149900a44933e2009843cd96
     name: kafka-schema-registry
@@ -347,10 +407,14 @@ entries:
   kibana:
   - appVersion: 6.2.4
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.273845708Z
 =======
     created: 2018-07-03T18:38:19.571675899Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.44585841Z
+>>>>>>> Ran Awake
     description: Kibana is an open source data visualization plugin for Elasticsearch
     digest: 438ce1fe0f22f897c463328f310dc42099d1063ffbd15b4099e9e4e768c34050
     engine: gotpl
@@ -373,10 +437,14 @@ entries:
   kubernetes-dashboard:
   - appVersion: 1.7.1
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.276249532Z
 =======
     created: 2018-07-03T18:38:19.576049823Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.450690817Z
+>>>>>>> Ran Awake
     description: General-purpose web UI for Kubernetes clusters
     digest: ae3c9c02b6dd1434bd4ba5403d9ec2b18981ead28da114040140d12f5a7077b6
     keywords:
@@ -393,10 +461,14 @@ entries:
   - apiVersion: v1
     appVersion: 0.2.2
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.278274321Z
 =======
     created: 2018-07-03T18:38:19.58058689Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.454534415Z
+>>>>>>> Ran Awake
     description: A Helm chart for Kubernetes
     digest: 68b290b68f03f517ba328d8843cb7e875a12459285f400c882e9d89919baf571
     name: metrics-server
@@ -409,10 +481,14 @@ entries:
   nginx:
   - appVersion: 1.10.2
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.280045301Z
 =======
     created: 2018-07-03T18:38:19.583671404Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.457951581Z
+>>>>>>> Ran Awake
     description: Chart for the nginx server
     digest: 2fe33f9c538e84128119c0f79a5043cdd6b5f2f460b760d6ff66d9d5ee37b289
     engine: gotpl
@@ -434,13 +510,13 @@ entries:
     version: 0.4.2
   openam:
   - apiVersion: v1
-    appVersion: 1.0.0
-    created: 2018-07-03T18:38:19.587079732Z
+    appVersion: 13.0.0
+    created: 2018-07-25T10:19:03.461639878Z
     description: A Helm chart for OpenAM
-    digest: 3e0caa192a6bb6b54f60171cd8d954d7983a851678bf1e727a3fe7049f4a7aaf
+    digest: f257d3fb2a3367672065d53850d32d36d87832a2b31e911923e544cdc7f32f61
     home: https://github.com/Deepak-Routray/charts
     maintainers:
-    - name: DEEPAK ROUTRAY
+    - name: DEEPAK-ROUTRAY
     name: openam
     urls:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/openam-0.1.0.tgz
@@ -448,10 +524,14 @@ entries:
   stolon:
   - appVersion: 0.10.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.288706598Z
 =======
     created: 2018-07-03T18:38:19.597499977Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.474121618Z
+>>>>>>> Ran Awake
     description: Stolon - PostgreSQL cloud native High Availability.
     digest: 398b2d3cac4bead9de0ed3e3573de555ad5cc7d3f1e534058eefdd472ac8a465
     engine: gotpl
@@ -471,10 +551,14 @@ entries:
     version: 0.2.0
   - appVersion: 0.10.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.286112439Z
 =======
     created: 2018-07-03T18:38:19.59429689Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.470017489Z
+>>>>>>> Ran Awake
     description: Stolon - PostgreSQL cloud native High Availability.
     digest: 1debf5dfc8c31f6a9a030241bb6503b9dc0ab33644ee7b1b0153d4dd7e1df80c
     engine: gotpl
@@ -494,10 +578,14 @@ entries:
     version: 0.1.1
   - appVersion: 0.10.0
 <<<<<<< HEAD
+<<<<<<< HEAD
     created: 2018-07-13T18:12:06.28297451Z
 =======
     created: 2018-07-03T18:38:19.590680684Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+    created: 2018-07-25T10:19:03.466106841Z
+>>>>>>> Ran Awake
     description: Stolon - PostgreSQL cloud native High Availability.
     digest: 3667a393b44e068baec7fac015c0221e0dbe1587e53fb205c1a39d5610bc3636
     engine: gotpl
@@ -512,6 +600,7 @@ entries:
     urls:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/stolon-0.1.0.tgz
     version: 0.1.0
+<<<<<<< HEAD
 <<<<<<< HEAD
   zookeeper:
   - appVersion: 3.4.10
@@ -537,3 +626,6 @@ generated: 2018-07-13T18:12:06.221808701Z
 =======
 generated: 2018-07-03T18:38:19.509097643Z
 >>>>>>> Added OpenAM chart - upstream PR https://github.com/kubernetes/charts/pull/6452
+=======
+generated: 2018-07-25T10:19:03.346063189Z
+>>>>>>> Ran Awake
