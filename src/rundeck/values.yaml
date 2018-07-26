@@ -38,7 +38,7 @@ resources:
   #  cpu: 1
   #  memory: 1024Mi
   #requests:
-  #  cpu: 100
+  #  cpu: 100m
   #  memory: 512Mi
 
 nodeSelector: {}
@@ -67,7 +67,7 @@ env:
   RD_PROJECT: DEFAULT
   RUNDECK_INSTALL_DIR: /opt/rundeck
   RSA_KEY_DIR: /var/lib/rundeck/.ssh
-  JAVA_OPTIONS: -XX:MaxPermSize=256m -Xmx512m -Xms256m -XX:MaxMetaspaceSize=256m -XX:+PrintFlagsFinal
+  JAVA_OPTIONS: -XX:MaxPermSize=256m -Xmx512m -Xms512m -XX:MaxMetaspaceSize=256m -XX:+PrintFlagsFinal
 #UID: 1000
 #GID: 1000
 
