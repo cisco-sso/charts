@@ -4,7 +4,6 @@ Chart supports persistent shared store for storing rundeck project related files
 ## Prerequisite
 Kubernetes 1.9+
 
-```
 If external database is configured, then empty database should be available and DB related options inside values.yaml need to be configured accordingly.
 ## Installing the chart
 
@@ -25,47 +24,46 @@ Chart can be run in minikube. We need to enable ingress and add minikube ip in h
 ```
 ## Options in values.yaml
 Default Values are specified in values.yaml. They can be customized as per user needs.
-```
-| Option                  | Mandatory     | Description                                                                                                              |
-| ------------------------|:-------------:| ------------------------------------------------------------------------------------------------------------------------:|
-| env.SHARED_STORAGE      | Yes           | Persistent volume path where rundeck projects and logs would reside                                                      |
-| env.DB_URL              | No            | External DB Hostname.Only applicable for external DB                                                                     |
-| env.DB_SCHEMA           | No            | External DB schema/db name. Only applicable for external DB                                                              |
-| env.DB_USER             | No            | External DB user name. Only applicable for external DB                                                                   |
-| env.DB_PASS             | No            | External DB password. Only applicable for external DB                                                                    |
-| env.RD_URL              | Yes           | Rundeck URL through which rundeck application can be accessed                                                            |
-| env.RD_USER             | Yes           | Rundeck user which can be used to login into Rundeck UI, use rundeck                                                     |
-| env.RD_PASSWORD         | Yes           | Rundeck password                                                                                                         |
-| env.RD_PROJECT          | Yes           | Default Project name under which jobs are created                                                                        |
-| env.RUNDECK_INSTALL_DIR | Yes           | Directory where Rundeck would be installed                                                                               |
-| env.RSA_KEY_DIR         | Yes           | Directory for ssh key for passwordless remote server connection                                                          |
-| env.JAVA_OPTIONS        | Yes           | Depending on the operating environment, java options can be set                                                          |
-| env.UID                 | No            | UID for the env.RD_USER if you do not want to run rundeck as root uid/gid. If not supplied, root would be assumed        |
-| env.GID                 | No            | GID for the env.RD_USER if you do not want to run rundeck as root uid/gid. If not supplied, root would be assumed        |
-| volumeClaim.accessMode  | No            | Access Mode of requested PV/PVC. e.g ReadWriteOnce, ReadWriteMany etc.                                                   |
-| volumeClaim.storage     | No            | Size of requested PV/PVC                                                                                                 |
-| grails.auth             | Yes           | true if mail server supports authorization for configuration of rundeck notifications                                    |
-| grails.url              | Yes           | Rundeck URL used to integrate with other application                                                                     |
-| grails.mailhost         | No            | Mail server IP/Hostname if notification is required                                                                      |
-| grails.mailport         | No            | Mail server port if notification is required                                                                             |
-| grails.mailuser         | No            | Mail server user if notification is required and grails.auth is true                                                     |
-| grails.mailpass         | No            | Mail server password if notification is required and grails.auth is true                                                 |
-| grails.mailfrom         | No            | Mail server from address if notification is required                                                                     |
-| datasource.url          | Yes           | Datasource URL. Default is internal in-memory h2 DB. External DB url can be used in conjuction with DB related options   |
-| edgeNodes               | Yes           | Key value pair with remote host ip/name and user name to connect using ssh for dispatching job to remote nodes           |
-| livenessProbe.enabled             | Yes      | Whether to enable liveness probe.                                                                                   |
-| livenessProbe.initialDelaySeconds | Yes      | Standard k8s liveness probe attribute initialDelaySeconds                                                           |
-| livenessProbe.periodSeconds       | Yes      | Standard k8s liveness probe attribute periodSeconds                                                                 |
-| livenessProbe.timeoutSeconds      | Yes      | Standard k8s liveness probe attribute timeoutSeconds                                                                |
-| livenessProbe.failureThreshold    | Yes      | Standard k8s liveness probe attribute failureThreshold                                                              |
-| livenessProbe.successThreshold    | Yes      | Standard k8s liveness probe attribute successThreshold                                                              |
-| readinessProbe.enabled            | Yes      | Whether to enable liveness probe.                                                                                   |
-| readinessProbe.initialDelaySeconds| Yes      | Standard k8s readiness probe attribute initialDelaySeconds                                                          |
-| readinessProbe.periodSeconds      | Yes      | Standard k8s readiness probe attribute periodSeconds                                                                |
-| readinessProbe.timeoutSeconds     | Yes      | Standard k8s readiness probe attribute timeoutSeconds                                                               |
-| readinessProbe.failureThreshold   | Yes      | Standard k8s readiness probe attribute failureThreshold                                                             |
-| readinessProbe.successThreshold   | Yes      | Standard k8s readiness probe attribute successThreshold                                                             |
-| secret.enabled                    | No       | if true, ssh secret needs to be provided. Same would be copied into container for communication with remote nodes   |
-| keys.storage.type                 | Yes      | Storage preference type for ssh keys. Can be file or db. If "db" is set, then make sure to use external DB          |
- 
-```
+
+Option | Required | Description
+--- | --- | ---
+`env.SHARED_STORAGE` | Yes | Persistent volume path where rundeck projects and logs would reside                                                      
+`env.DB_URL` | No | External DB Hostname.Only applicable for external DB
+`env.DB_SCHEMA` | No | External DB schema/db name. Only applicable for external DB
+`env.DB_USER` | No | External DB user name. Only applicable for external DB
+`env.DB_PASS` | No | External DB password. Only applicable for external DB
+`env.RD_URL` | Yes | Rundeck URL through which rundeck application can be accessed
+`env.RD_USER` | Yes | Rundeck user which can be used to login into Rundeck UI, use rundeck
+`env.RD_PASSWORD` | Yes | Rundeck password
+`env.RD_PROJECT` | Yes | Default Project name under which jobs are created
+`env.RUNDECK_INSTALL_DIR` | Yes | Directory where Rundeck would be installed
+`env.RSA_KEY_DIR` | Yes | Directory for ssh key for passwordless remote server connection
+`env.JAVA_OPTIONS` | Yes | Depending on the operating environment, java options can be set
+`env.UID` | No | UID for the env.RD_USER if you do not want to run rundeck as root uid/gid. If not supplied, root would be assumed
+`env.GID` | No | GID for the env.RD_USER if you do not want to run rundeck as root uid/gid. If not supplied, root would be assumed
+`volumeClaim.accessMode` | No | Access Mode of requested PV/PVC. e.g ReadWriteOnce, ReadWriteMany etc.
+`volumeClaim.storage` | No | Size of requested PV/PVC
+`grails.auth` | Yes | true if mail server supports authorization for configuration of rundeck notifications
+`grails.url` | Yes | Rundeck URL used to integrate with other application
+`grails.mailhost` | No | Mail server IP/Hostname if notification is required
+`grails.mailport` | No | Mail server port if notification is required
+`grails.mailuser` | No | Mail server user if notification is required and grails.auth is true
+`grails.mailpass` | No | Mail server password if notification is required and grails.auth is true
+`grails.mailfrom` | No | Mail server from address if notification is required
+`datasource.url` | Yes | Datasource URL. Default is internal in-memory h2 DB. External DB url can be used in conjuction with DB related options
+`edgeNodes` | Yes | Key value pair with remote host ip/name and user name to connect using ssh for dispatching job to remote nodes
+`livenessProbe.enabled` | Yes | Whether to enable liveness probe.
+`livenessProbe.initialDelaySeconds` | Yes | Standard k8s liveness probe attribute initialDelaySeconds
+`livenessProbe.periodSeconds` | Yes | Standard k8s liveness probe attribute periodSeconds
+`livenessProbe.timeoutSeconds` | Yes | Standard k8s liveness probe attribute timeoutSeconds
+`livenessProbe.failureThreshold` | Yes | Standard k8s liveness probe attribute failureThreshold
+`livenessProbe.successThreshold` | Yes | Standard k8s liveness probe attribute successThreshold
+`readinessProbe.enabled` | Yes | Whether to enable liveness probe.
+`readinessProbe.initialDelaySeconds` | Yes | Standard k8s readiness probe attribute initialDelaySeconds
+`readinessProbe.periodSeconds` | Yes | Standard k8s readiness probe attribute periodSeconds
+`readinessProbe.timeoutSeconds` | Yes | Standard k8s readiness probe attribute timeoutSeconds
+`readinessProbe.failureThreshold` | Yes | Standard k8s readiness probe attribute failureThreshold
+`readinessProbe.successThreshold` | Yes | Standard k8s readiness probe attribute successThreshold
+`secret.enabled` | No | if true, ssh secret needs to be provided. Same would be copied into container for communication with remote nodes
+`keys.storage.type` | Yes | Storage preference type for ssh keys. Can be file or db. If "db" is set, then make sure to use external DB
+
