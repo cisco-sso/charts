@@ -52,6 +52,7 @@ Parameter | Description | Default
 `affinity` | node/pod affinities | `{}`
 `annotations` | annotations to add to each pod | `{}`
 `env` | Environment variables to configure Kibana | `{}`
+`files` | Kibana configuration files (config properties can be set through the `env` parameter too). All the files listed under this variable will overwrite any existing files by the same name in kibana config directory. Files not mentioned under this variable will remain unaffected. | None
 `args` | add additional commandline args | `nil`
 `plugins`| plugins that should be installed | `[]`
 
