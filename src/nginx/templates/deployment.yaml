@@ -70,5 +70,5 @@ spec:
       {{- if .Values.vhost }}
       - name: nginx-vhost
         configMap:
-          name: {{ template "fullname" . }}
+          name: {{ template "nginx.fullname" . }}
       {{- end }}
