@@ -52,10 +52,13 @@ associated resources to become healthy.
   {{  $fullName := include "kafka.fullname" . }}
   {{- $replicaCount := .Values.replicaCount | int }}
   {{- $servicePort := .Values.external.service.port }}
-  {{- $externalFqdn := printf "%s.%s" .Release.Name .Values.external.domain }}
   {{- $root := . }}
   {{- range $i, $e := until $replicaCount }}
     {{- $externalListenerPort := add $root.Values.external.firstListenerPort $i }}
-{{ printf "%s:%d" $externalFqdn $externalListenerPort | indent 2 }}
+    {{- if $root.Values.external.distinct }}
+{{ printf "%s-%d.%s:%d" $root.Release.Name $i $root.Values.external.domain  $externalListenerPort | indent 2 }}
+    {{- else }}
+{{ printf "%s.%s:%d" $root.Release.Name $root.Values.external.domain $externalListenerPort | indent 2 }}
+    {{- end }}
   {{- end }}
 {{- end }}
