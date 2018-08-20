@@ -1,0 +1,51 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "volumesnapshot.fullname" . }}-provisioner
+  labels:
+    app: {{ template "volumesnapshot.name" . }}
+    chart: {{ template "volumesnapshot.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.provisioner.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "volumesnapshot.name" . }}-provisioner
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "volumesnapshot.name" . }}-provisioner
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: snapshot-provisioner
+          image: "{{ .Values.provisioner.image.repository }}:{{ .Values.provisioner.image.tag }}"
+          imagePullPolicy: {{ .Values.provisioner.image.pullPolicy }}
+          args:
+          - --cloudprovider 
+          - {{ .Values.cloud.provider }} 
+          - --cloudconfig
+          - "/config/cloud_config"
+          volumeMounts:
+          - name: cloudconfig
+            mountPath: "/config"
+          resources:
+{{ toYaml .Values.provisioner.resources | indent 12 }}
+    {{- with .Values.provisioner.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.provisioner.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.provisioner.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+      volumes:
+      - name: cloudconfig
+        secret:
+          secretName: {{ template "volumesnapshot.secretname" . }}

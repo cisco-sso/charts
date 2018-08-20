@@ -1,0 +1,44 @@
+# Default values for devops2-snapshot-controller.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+cloud:
+  provider: openstack
+  secret:
+    name: cloud-config
+    create: true
+  openstack:
+    authURL: https://localhost:5000/v3
+    username:
+    password:
+    region:
+    tenantID:
+    tenantName:
+    domainName:
+
+controller:
+  replicas: 1
+  image: 
+    repository: ciscosso/snapshot-controller
+    tag: 0.1.0
+    pullPolicy: IfNotPresent
+  resources: {}
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+provisioner:
+  replicas: 1
+  image:
+    repository: ciscosso/snapshot-provisioner
+    tag: 0.1.0
+    pullPolicy: IfNotPresent
+  tag: latest
+  pullPolicy: IfNotPresent
+  resources: {}
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+storageClass:
+  name: snapshot
