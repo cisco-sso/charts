@@ -80,7 +80,7 @@ spec:
               name: {{ template "openam.fullname" . }}-pvc
       volumes:
       - name: {{ template "openam.fullname" . }}-initial-config-configmap
-        ConfigMap:
+        configMap:
           name: {{ template "openam.fullname" . }}-initial-config
   volumeClaimTemplates:
   - metadata:
