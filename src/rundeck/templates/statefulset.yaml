@@ -22,7 +22,7 @@ spec:
     spec:
       volumes:
       - name: {{ template "rundeck.fullname" . }}-configmap
-        ConfigMap:
+        configMap:
           name: {{ template "rundeck.fullname" . }}
       {{- if .Values.secret.enabled}}
       - name: {{ template "rundeck.fullname" . }}-ssh-secret
