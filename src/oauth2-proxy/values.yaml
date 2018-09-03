@@ -29,6 +29,18 @@ extraArgs:
   upstream: "file:///dev/null"
   http-address: "0.0.0.0:4180"
 
+# To authorize individual email addresses
+# That is part of extraArgs but since this needs special treatment we need to do a separate section
+authenticatedEmailsFile:
+  enabled: false
+  template: ""
+  # One email per line
+  # example:
+  # restricted_access: |-
+  #   name1@domain
+  #   name2@domain
+  restricted_access: ""
+
 service:
   type: ClusterIP
   port: 80
