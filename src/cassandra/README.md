@@ -81,7 +81,7 @@ The following table lists the configurable parameters of the Cassandra chart and
 | Parameter                  | Description                                     | Default                                                    |
 | -----------------------    | ---------------------------------------------   | ---------------------------------------------------------- |
 | `image.repo`                         | `cassandra` image repository                    | `cassandra`                                                |
-| `image.tag`                          | `cassandra` image tag                           | `3`                                                        |
+| `image.tag`                          | `cassandra` image tag                           | `3.11.2`                                                   |
 | `image.pullPolicy`                   | Image pull policy                               | `Always` if `imageTag` is `latest`, else `IfNotPresent`    |
 | `image.pullSecrets`                  | Image pull secrets                              | `nil`                                                      |
 | `config.cluster_name`                | The name of the cluster.                        | `cassandra`                                                |
@@ -115,6 +115,10 @@ The following table lists the configurable parameters of the Cassandra chart and
 | `readinessProbe.timeoutSeconds`      | When the probe times out                        | `5`                                                        |
 | `readinessProbe.successThreshold`    | Minimum consecutive successes for the probe to be considered successful after having failed.           | `1` |
 | `readinessProbe.failureThreshold`    | Minimum consecutive failures for the probe to be considered failed after having succeeded.             | `3` |
+| `metrics.enabled`                    | Enable prometheus metrics sidecar container     | `false` |
+| `metrics.port`                       | Prometheus metrics sidecar container port       | `9108` |
+| `metrics.image.repo`                 | Prometheus metrics sidecar image                | `` |
+| `metrics.image.tag`                  | Prometheus metrics sidecar image tag            | `` |
 
 ## Scale cassandra
 When you want to change the cluster size of your cassandra, you can use the helm upgrade command.

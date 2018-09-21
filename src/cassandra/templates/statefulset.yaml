@@ -13,8 +13,20 @@ spec:
   podManagementPolicy: {{ .Values.podManagementPolicy }}
   updateStrategy:
     type: {{ .Values.updateStrategy.type }}
+  selector:
+    matchLabels:
+      app: {{ template "cassandra.name" . }}
+      release: {{ .Release.Name }}
+{{- if .Values.podLabels }}
+{{ toYaml .Values.podLabels | indent 6 }}
+{{- end }}
   template:
     metadata:
+{{- if .Values.metrics.enabled }}
+      annotations:
+        prometheus.io/port: {{ .Values.metrics.port | quote }}
+        prometheus.io/scrape: "true"
+{{- end }}
       labels:
         app: {{ template "cassandra.name" . }}
         release: {{ .Release.Name }}
@@ -35,6 +47,19 @@ spec:
 {{ toYaml .Values.affinity | indent 8 }}
 {{- end }}
       containers:
+{{- if .Values.metrics.enabled }}
+      - name: metrics
+        image: "{{ .Values.metrics.image.repo }}:{{ .Values.metrics.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+        ports:
+        - name: metrics
+          containerPort: {{ .Values.metrics.port }}
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /metrics
+            port: metrics
+{{- end }}
       - name: {{ template "cassandra.fullname" . }}
         image: "{{ .Values.image.repo }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
