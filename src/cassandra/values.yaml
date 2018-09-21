@@ -109,3 +109,8 @@ securityContext:
 ## Affinity for pod assignment
 ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
 affinity: {}
+
+## Metrics sidecar container
+metrics:
+  enabled: false
+  port: 9108
