@@ -1,0 +1,19 @@
+{{- if and .Values.rbac.create -}}
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ template "volumesnapshot.fullname" . }}
+  labels:
+    app: {{ template "volumesnapshot.name" . }}
+    chart: {{ template "volumesnapshot.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ template "volumesnapshot.fullname" . }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ template "volumesnapshot.serviceAccountName" . }}
+    namespace: {{ .Release.Namespace }}
+{{- end -}}

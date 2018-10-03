@@ -1,0 +1,5 @@
+1. Resources of type `volumesnapshots` are now available.  When snapshots have been 
+   successfully created in the configured cloud provider they will be coupled to an 
+   additional type `volumesnapshotdata`.
+2. PVC's can now be created based off of snapshots by using the {{ .Values.storageClass.name }} 
+   storage class.
