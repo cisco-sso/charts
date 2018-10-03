@@ -55,3 +55,14 @@ Create chart name and version as used by the chart label.
 {{- define "volumesnapshot.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "volumesnapshot.serviceAccountName" -}}
+{{- if .Values.rbac.serviceAccount.create -}}
+    {{ default (include "volumesnapshot.fullname" .) .Values.rbac.serviceAccount.name }}
+{{- else -}}
+    {{ default "default" .Values.rbac.serviceAccount.name }}
+{{- end -}}
+{{- end -}}

@@ -197,4 +197,7 @@ This chart packages several overridable default values:
 | provisioner.nodeSelector | The nodeSelector for the provisioner container | `{}` |
 | provisioner.tolerations | The tolerations for the provisioner container | `[]` |
 | provisioner.affinity | The affinity for the provisioner container | `{}` |
+| rbac.create | Create RBAC resources for this chart | `true` |
+| rbac.serviceAccount.create | Create a new service account to be used with the deployments | `true` |
+| rbac.serviceAccount.name | Bind the role to this named service account.  Incompatible with `rbac.serviceAccount.create` | `nil` |
 | storageClass.name | The name of the storage class the provisioner will use to promote `volumesnapshotdata` | `snapshot` |

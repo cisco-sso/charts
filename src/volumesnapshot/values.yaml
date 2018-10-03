@@ -8,7 +8,7 @@ cloud:
     name: cloud-config
     create: true
   openstack:
-    authURL: https://localhost:5000/v3
+    authURL:
     username:
     password:
     region:
@@ -42,3 +42,9 @@ provisioner:
 
 storageClass:
   name: snapshot
+
+rbac:
+  create: true
+  serviceAccount:
+    create: true
+    # name: "default"

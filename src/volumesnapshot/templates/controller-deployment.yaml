@@ -19,6 +19,7 @@ spec:
         app: {{ template "volumesnapshot.name" . }}-controller
         release: {{ .Release.Name }}
     spec:
+      serviceAccountName: {{ template "volumesnapshot.serviceAccountName" . }}
       containers:
         - name: snapshot-controller
           image: "{{ .Values.controller.image.repository }}:{{ .Values.controller.image.tag }}"
@@ -27,7 +28,7 @@ spec:
           - --cloudprovider 
           - {{ .Values.cloud.provider }} 
           - --cloudconfig
-          - "/config/cloud_config"
+          - "/config/{{ template "volumesnapshot.secretname" . }}"
           volumeMounts:
           - name: cloudconfig
             mountPath: "/config"
