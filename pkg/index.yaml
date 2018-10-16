@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   cassandra:
   - appVersion: "3"
-    created: 2018-10-16T14:14:12.1259403Z
+    created: 2018-10-16T16:34:32.1179489Z
     description: Apache Cassandra is a free and open-source distributed database management
       system designed to handle large amounts of data across many commodity servers,
       providing high availability with no single point of failure.
@@ -24,7 +24,7 @@ entries:
   cert-manager-configs:
   - apiVersion: v1
     appVersion: 0.1.0
-    created: 2018-10-16T14:14:12.1284283Z
+    created: 2018-10-16T16:34:32.1211449Z
     description: A Helm chart for adding Cert-Manager Configurations
     digest: 00b604b0200a8c57804fd1b423eec29ce900bc09e918ae9ce80311b3bc925915
     name: cert-manager-configs
@@ -33,7 +33,7 @@ entries:
     version: 0.1.0
   drone:
   - appVersion: 0.8.5
-    created: 2018-10-16T14:14:12.1312401Z
+    created: 2018-10-16T16:34:32.1252866Z
     description: Drone is a Continuous Delivery system built on container technology
     digest: d726eb006c02fe9d2d73b12e942fcc1d17c5fdd050099ed2a448359338e19d2f
     home: https://drone.io/
@@ -57,7 +57,7 @@ entries:
     version: 1.0.5
   elasticsearch:
   - appVersion: 6.1.1
-    created: 2018-10-16T14:14:12.1368237Z
+    created: 2018-10-16T16:34:32.1332103Z
     description: Flexible and powerful open source, distributed real-time search and
       analytics engine.
     digest: 28e498280f95f2a7347509c16f44226b79d789ac8930f080f40106c0b11223c9
@@ -81,7 +81,7 @@ entries:
     urls:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/elasticsearch-1.1.0.tgz
     version: 1.1.0
-  - created: 2018-10-16T14:14:12.1341105Z
+  - created: 2018-10-16T16:34:32.1289335Z
     description: Flexible and powerful open source, distributed real-time search and
       analytics engine.
     digest: 70726f4d4a89ab9cc79c5243929903c1eb6a3c6c092953752814f9b32f1cb7b5
@@ -106,7 +106,7 @@ entries:
   envoy:
   - apiVersion: v1
     appVersion: "1.6"
-    created: 2018-10-16T14:14:12.139325Z
+    created: 2018-10-16T16:34:32.137858Z
     description: Envoy is an open source edge and service proxy, designed for cloud-native
       applications.
     digest: 256aaacb67fdbaa00ec7bc2aa62bbe7715ca873c69333f9e95ab7ea25f39561c
@@ -127,7 +127,7 @@ entries:
   external-dns:
   - apiVersion: v1
     appVersion: 0.5.0
-    created: 2018-10-16T14:14:12.1431477Z
+    created: 2018-10-16T16:34:32.1411567Z
     description: Configure external DNS servers (AWS Route53, Google CloudDNS and
       others) for Kubernetes Ingresses and Services
     digest: 29b4a7f6572edae7d87ef39e4b3135b6da1649de38696a632bbf0af32bde27d2
@@ -142,7 +142,7 @@ entries:
   filebeat:
   - apiVersion: v1
     appVersion: 6.3.0
-    created: 2018-10-16T14:14:12.1457478Z
+    created: 2018-10-16T16:34:32.1444963Z
     description: A Helm chart to collect Kubernetes logs with filebeat
     digest: 8c89a6347d837f19638a463079075f24cb3e7c9a4e71be73c8bd8e466acef1da
     home: https://www.elastic.co/products/beats/filebeat
@@ -159,10 +159,11 @@ entries:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/filebeat-0.3.1.tgz
     version: 0.3.1
   gangway:
-  - created: 2018-10-16T14:14:12.1484835Z
+  - appVersion: v2.1.1
+    created: 2018-10-16T16:34:32.1474221Z
     description: An application that can be used to easily enable authentication flows
       via OIDC for a kubernetes cluster.
-    digest: 2a443a764292f013549d2c2cd1c80e8dd3c29fb49c997417848eea8545d5e462
+    digest: ba719aba3ddbdf4d62eba8bccb946b7848a0885f722654294cfb46fc8104286b
     home: https://github.com/heptiolabs/gangway
     icon: https://heptio.com/wp-content/uploads/2017/08/logo-knockout.png
     maintainers:
@@ -176,7 +177,7 @@ entries:
     version: 0.1.0
   hackmd:
   - apiVersion: v1
-    created: 2018-10-16T14:14:12.1518557Z
+    created: 2018-10-16T16:34:32.1515209Z
     description: A Helm chart for Kubernetes
     digest: 9e47b55661dcb856ce4df526f136dc8c2dd0777ca6d0dfa78b026700141e5eae
     engine: gotpl
@@ -190,7 +191,7 @@ entries:
   ingress-resource:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-16T14:14:12.1558901Z
+    created: 2018-10-16T16:34:32.1554296Z
     description: A Helm chart for a Kubernetes Ingress Resource Definition
     digest: 57c27fb6218b6956682d41904b9bf8a18b008522fc741676f0b7cd2b24f6a83e
     name: ingress-resource
@@ -200,7 +201,7 @@ entries:
   kafka:
   - apiVersion: v1
     appVersion: 0.11.0.0
-    created: 2018-10-16T14:14:12.1706252Z
+    created: 2018-10-16T16:34:32.1739892Z
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
       commit log.
     digest: 954d761395628bdcfb3653c0c0e73852157007b29cda57dbac0a3d9fcbcae131
@@ -228,7 +229,7 @@ entries:
     version: 0.6.0
   - apiVersion: v1
     appVersion: 0.11.0.0
-    created: 2018-10-16T14:14:12.1669928Z
+    created: 2018-10-16T16:34:32.1686318Z
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
       commit log.
     digest: 7d9d0e449f6090192fdfc9275a343a359f0b3da01c50df365ec17fcf82fb2f00
@@ -256,7 +257,7 @@ entries:
     version: 0.5.5
   - apiVersion: v1
     appVersion: 0.11.0.0
-    created: 2018-10-16T14:14:12.1636013Z
+    created: 2018-10-16T16:34:32.1640445Z
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
       commit log.
     digest: d6019aff553d6c5ec2292ff097cfe858bda5bb6bd04098d180683b031dc240a9
@@ -284,7 +285,7 @@ entries:
     version: 0.5.4
   - apiVersion: v1
     appVersion: 0.11.0.0
-    created: 2018-10-16T14:14:12.1591823Z
+    created: 2018-10-16T16:34:32.1596924Z
     description: Apache Kafka is publish-subscribe messaging rethought as a distributed
       commit log.
     digest: ff57c4b07e603fe44755f4f5be86dcff0c6c4d3e2ff0a3b6d305efdf0565749a
@@ -313,7 +314,7 @@ entries:
   kafka-manager:
   - apiVersion: v1
     appVersion: 1.3.3.17
-    created: 2018-10-16T14:14:12.1792752Z
+    created: 2018-10-16T16:34:32.1846348Z
     description: A Helm chart for Kafka Manager
     digest: bd77acb551915604207ab4d097f2223c3bc09533e62c30494d22e50c7e6faab5
     name: kafka-manager
@@ -322,7 +323,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: 1.3.3.16
-    created: 2018-10-16T14:14:12.1733755Z
+    created: 2018-10-16T16:34:32.1773009Z
     description: A Helm chart for Kafka Manager
     digest: a6e0512342749da84b7798ebba4ed0fac72ad87cab865e3f98958b5649309907
     name: kafka-manager
@@ -332,7 +333,7 @@ entries:
   kafka-rest:
   - apiVersion: v1
     appVersion: 4.0.0
-    created: 2018-10-16T14:14:12.1837305Z
+    created: 2018-10-16T16:34:32.1876126Z
     description: A Helm chart for Kafka REST
     digest: ff324d94a88ecf086574974c3f81bea8b6470b71d9c2995f6d36f1d20f5fa552
     name: kafka-rest
@@ -342,7 +343,7 @@ entries:
   kafka-schema-registry:
   - apiVersion: v1
     appVersion: 4.0.0
-    created: 2018-10-16T14:14:12.1864725Z
+    created: 2018-10-16T16:34:32.1908329Z
     description: A Helm chart for Kafka Schema Registry
     digest: 2429e21310897d891d9df72a60224c69924dad9f149900a44933e2009843cd96
     name: kafka-schema-registry
@@ -351,7 +352,7 @@ entries:
     version: 0.2.0
   kibana:
   - appVersion: 6.2.4
-    created: 2018-10-16T14:14:12.1921457Z
+    created: 2018-10-16T16:34:32.1987935Z
     description: Kibana is an open source data visualization plugin for Elasticsearch
     digest: 35fccb85ea57133a863f3b8244fcb012479ac7fc7cf245090680babd2aae2064
     engine: gotpl
@@ -372,7 +373,7 @@ entries:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/kibana-0.7.0.tgz
     version: 0.7.0
   - appVersion: 6.2.4
-    created: 2018-10-16T14:14:12.1890739Z
+    created: 2018-10-16T16:34:32.1951053Z
     description: Kibana is an open source data visualization plugin for Elasticsearch
     digest: 438ce1fe0f22f897c463328f310dc42099d1063ffbd15b4099e9e4e768c34050
     engine: gotpl
@@ -394,7 +395,7 @@ entries:
     version: 0.6.0
   kubernetes-dashboard:
   - appVersion: 1.7.1
-    created: 2018-10-16T14:14:12.1950194Z
+    created: 2018-10-16T16:34:32.208176Z
     description: General-purpose web UI for Kubernetes clusters
     digest: ae3c9c02b6dd1434bd4ba5403d9ec2b18981ead28da114040140d12f5a7077b6
     keywords:
@@ -410,7 +411,7 @@ entries:
   metrics-server:
   - apiVersion: v1
     appVersion: 0.2.2
-    created: 2018-10-16T14:14:12.1973718Z
+    created: 2018-10-16T16:34:32.2120755Z
     description: A Helm chart for Kubernetes
     digest: 68b290b68f03f517ba328d8843cb7e875a12459285f400c882e9d89919baf571
     name: metrics-server
@@ -422,7 +423,7 @@ entries:
     version: 0.1.0
   nginx:
   - appVersion: 1.10.2
-    created: 2018-10-16T14:14:12.2016846Z
+    created: 2018-10-16T16:34:32.2165881Z
     description: Chart for the nginx server
     digest: 2fe33f9c538e84128119c0f79a5043cdd6b5f2f460b760d6ff66d9d5ee37b289
     engine: gotpl
@@ -445,7 +446,7 @@ entries:
   openam:
   - apiVersion: v1
     appVersion: 13.0.0
-    created: 2018-10-16T14:14:12.2077112Z
+    created: 2018-10-16T16:34:32.2230228Z
     description: A Helm chart for OpenAM
     digest: 93905e5637aa78ef66b44ff8f9c7356fbe8a9ec4def16c6cb2772c475ebd2bee
     home: https://github.com/Deepak-Routray/charts
@@ -457,7 +458,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: 13.0.0
-    created: 2018-10-16T14:14:12.2047466Z
+    created: 2018-10-16T16:34:32.2198299Z
     description: A Helm chart for OpenAM
     digest: f257d3fb2a3367672065d53850d32d36d87832a2b31e911923e544cdc7f32f61
     home: https://github.com/Deepak-Routray/charts
@@ -469,7 +470,7 @@ entries:
     version: 0.1.0
   raw:
   - appVersion: 0.1.0
-    created: 2018-10-16T14:14:12.2107227Z
+    created: 2018-10-16T16:34:32.2260613Z
     description: A place for all the Kubernetes resources which don't already have
       a home.
     digest: 02363afff553ec57e69043cbc30f4ea8b207f827e7fffc9a664ece73dd884c58
@@ -484,7 +485,7 @@ entries:
   rundeck:
   - apiVersion: v1
     appVersion: 2.11.4
-    created: 2018-10-16T14:14:12.2161558Z
+    created: 2018-10-16T16:34:32.2318956Z
     description: A Helm chart for Rundeck
     digest: ff0797acacc342bdfa20a261fe78a59182be2685de921c965c5118b720c4a619
     home: https://github.com/Deepak-Routray/charts
@@ -496,7 +497,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: 2.11.4
-    created: 2018-10-16T14:14:12.2136073Z
+    created: 2018-10-16T16:34:32.2290326Z
     description: A Helm chart for Rundeck
     digest: 2bd62d68ca0627889701b9a3276547a0a9a61a7b75fbdc8c86849a2623007044
     home: https://github.com/Deepak-Routray/charts
@@ -508,7 +509,7 @@ entries:
     version: 0.1.0
   stolon:
   - appVersion: 0.10.0
-    created: 2018-10-16T14:14:12.2262649Z
+    created: 2018-10-16T16:34:32.2432167Z
     description: Stolon - PostgreSQL cloud native High Availability.
     digest: 398b2d3cac4bead9de0ed3e3573de555ad5cc7d3f1e534058eefdd472ac8a465
     engine: gotpl
@@ -527,7 +528,7 @@ entries:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/stolon-0.2.0.tgz
     version: 0.2.0
   - appVersion: 0.10.0
-    created: 2018-10-16T14:14:12.2235374Z
+    created: 2018-10-16T16:34:32.2398726Z
     description: Stolon - PostgreSQL cloud native High Availability.
     digest: 1debf5dfc8c31f6a9a030241bb6503b9dc0ab33644ee7b1b0153d4dd7e1df80c
     engine: gotpl
@@ -546,7 +547,7 @@ entries:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/stolon-0.1.1.tgz
     version: 0.1.1
   - appVersion: 0.10.0
-    created: 2018-10-16T14:14:12.2197465Z
+    created: 2018-10-16T16:34:32.2362923Z
     description: Stolon - PostgreSQL cloud native High Availability.
     digest: 3667a393b44e068baec7fac015c0221e0dbe1587e53fb205c1a39d5610bc3636
     engine: gotpl
@@ -564,7 +565,7 @@ entries:
   volumesnapshot:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-16T14:14:12.2286993Z
+    created: 2018-10-16T16:34:32.2464692Z
     description: A Helm chart which deploys a custom controller to create volumesnapshots
       via configured external-storage.
     digest: 332902d3dc92bb48958f5c66b64b46637b3f55ddb6ac1aabbdc995ed4388d980
@@ -576,7 +577,7 @@ entries:
     version: 0.1.0
   zookeeper:
   - appVersion: 3.4.10
-    created: 2018-10-16T14:14:12.2314021Z
+    created: 2018-10-16T16:34:32.2495154Z
     description: Centralized service for maintaining configuration information, naming,
       providing distributed synchronization, and providing group services.
     digest: c061cc54f4e5e6208ffe21bedea2b03af335c94a9c675d31d0f1be728e74061d
@@ -594,4 +595,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/zookeeper-1.0.3.tgz
     version: 1.0.3
-generated: 2018-10-16T14:14:12.1229469Z
+generated: 2018-10-16T16:34:32.1143583Z
