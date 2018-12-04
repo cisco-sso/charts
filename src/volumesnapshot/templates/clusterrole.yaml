@@ -28,4 +28,28 @@ rules:
       - storageclasses
     verbs:
       - list
+      - watch
+  - apiGroups:
+    - ""
+    resources:
+    - persistentvolumeclaims
+    - persistentvolumes
+    - events
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - ""
+    resources:
+    - persistentvolumeclaims
+    verbs:
+    - update
+  - apiGroups:
+    - ""
+    resources:
+    - persistentvolumes
+    - events
+    verbs:
+    - create
 {{- end -}}
