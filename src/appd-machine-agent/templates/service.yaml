@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "appd-machine-agent.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "appd-machine-agent.name" . }}
+    helm.sh/chart: {{ include "appd-machine-agent.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: {{ include "appd-machine-agent.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}

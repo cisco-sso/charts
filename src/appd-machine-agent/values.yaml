@@ -1,0 +1,45 @@
+# Default values for appd-machine-agent.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: ciscosso/appd-machine-agent
+  tag: 4.5
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 8293
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 512Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 512Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env:
+
+  APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY: my-account-access-key
+  APPDYNAMICS_AGENT_ACCOUNT_NAME: my-account-name
+  APPDYNAMICS_AGENT_TIER_NAME: my-agent-tier-name
+  APPDYNAMICS_CONTROLLER_HOST_NAME: appd-controller.example.org
+  APPDYNAMICS_CONTROLLER_PORT: "8090"
+  APPDYNAMICS_CONTROLLER_SSL_ENABLED: "false"
+  MACHINE_AGENT_PROPERTIES: "-Xms256m -Xmx256m -Dmetric.http.listener=true -Dmetric.http.listener.host=0.0.0.0 -Dmetric.http.listener.port=8293"

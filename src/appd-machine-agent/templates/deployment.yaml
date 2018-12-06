@@ -1,0 +1,61 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ include "appd-machine-agent.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "appd-machine-agent.name" . }}
+    helm.sh/chart: {{ include "appd-machine-agent.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "appd-machine-agent.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "appd-machine-agent.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8293
+              protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: 60  # AppDynamics Machine Agent takes about
+                                     # 2-3 minutes to pass http probe.
+            periodSeconds: 10
+            failureThreshold: 10
+          livenessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: 75
+            periodSeconds: 20
+            failureThreshold: 10
+          env:
+          {{- range $key, $value := .Values.env }}
+            - name: {{ $key | upper | replace "." "_" }}
+              value: {{ $value | quote }}
+          {{- end }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
