@@ -25,6 +25,20 @@ ingress:
   hosts: []
   tls: []
 
+livenessProbe:
+  enabled: false
+  path: /status
+  initialDelaySeconds: 30
+  timeoutSeconds: 10
+
+readinessProbe:
+  enabled: false
+  path: /status
+  initialDelaySeconds: 30
+  timeoutSeconds: 10
+  periodSeconds: 10
+  successThreshold: 5
+
 resources: {}
 
 nodeSelector: {}
