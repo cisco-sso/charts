@@ -42,6 +42,23 @@ spec:
             - name: {{ $key }}
 {{ toYaml $value | indent 14 }}
 {{- end }}
+{{- if .Values.livenessProbe.enabled }}
+        livenessProbe:
+          httpGet:
+            path: {{ .Values.livenessProbe.path }}
+            port: {{ .Values.service.internalPort }}
+          initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+          timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+{{- end }}
+{{- if .Values.readinessProbe.enabled }}
+        readinessProbe:
+          httpGet:
+            path: {{ .Values.readinessProbe.path }}
+            port: {{ .Values.service.internalPort }}
+          initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+          timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+          successThreshold: {{ .Values.readinessProbe.successThreshold }}
+          periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
           volumeMounts:
