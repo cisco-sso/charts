@@ -4,7 +4,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ template "zookeeper.fullname" . }}-chroots
+  name: {{ template "zookeeper.chroots" . }}
   annotations:
     "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-weight": "-5"
@@ -30,6 +30,9 @@ spec:
         job: chroots
     spec:
       restartPolicy: {{ $job.restartPolicy }}
+{{- if .Values.priorityClassName }}
+      priorityClassName: "{{ .Values.priorityClassName }}"
+{{- end }}
       containers:
         - name: main
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
