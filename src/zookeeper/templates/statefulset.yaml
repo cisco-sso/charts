@@ -103,15 +103,10 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
-            {{- range $secret := .Values.secrets }}
-              {{- if $secret.mountPath }}
-                {{- range $key := $secret.keys }}
-            - name: {{ $.Release.Name }}-{{ $secret.name }}
-              mountPath: {{ $secret.mountPath }}/{{ $key }}
-              subPath: {{ $key }}
+            {{- if (.Values.secret) and (.Values.secret.enabled) }}
+            - name: secret
+              mountPath: {{ .Values.secret.mountPath }}
               readOnly: true
-                {{- end }}
-              {{- end }}
             {{- end }}
             - name: config
               mountPath: /config-scripts
@@ -192,10 +187,10 @@ spec:
           configMap:
             name: {{ template "zookeeper.fullname" . }}
             defaultMode: 0555
-        {{- range .Values.secrets }}
-        - name: {{ $.Release.Name }}-{{ .name }}
+        {{- if (.Values.secret) and (.Values.secret.enabled) }}
+        - name: secret
           secret:
-            secretName: {{ .name }}
+            secretName: {{ .Values.secret.secretName }}
         {{- end }}
         {{- if .Values.exporters.jmx.enabled }}
         - name: config-jmx-exporter
