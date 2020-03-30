@@ -87,11 +87,13 @@ ingress:
 rbac:
   ## If true, create & use RBAC resources
   #
-  create: {{ (datasource "config").rbac.enabled }}
+  create: {{ (datasource "config").rbac.create }}
 
   ## Ignored if rbac.create is true
   #
-  serviceAccountName: {{ (datasource "config").rbac.serviceAccountName }}
+serviceAccount:
+  create: {{ (datasource "config").serviceAccount.create }}
+  name: {{ (datasource "config").serviceAccount.name }}
 
 # tolerations:
 #   - key: taintKey

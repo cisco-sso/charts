@@ -7,4 +7,4 @@ maintainers:
 - email: Kevin.Fox@pnnl.gov
   name: kfox1111
 name: kubernetes-dashboard
-version: 0.4.1
+version: 0.5.0
