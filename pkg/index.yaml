@@ -405,6 +405,20 @@ entries:
     version: 0.6.0
   kubernetes-dashboard:
   - appVersion: 1.7.1
+    created: "2020-03-30T06:10:29.878484825Z"
+    description: General-purpose web UI for Kubernetes clusters
+    digest: 3233e29d1f30b2141e72b42f9ed4a2b7e2ac25cf299ea1f481699a49150f93d1
+    keywords:
+    - kubernetes
+    - dashboard
+    maintainers:
+    - email: Kevin.Fox@pnnl.gov
+      name: kfox1111
+    name: kubernetes-dashboard
+    urls:
+    - https://raw.githubusercontent.com/cisco-sso/charts/master/pkg/kubernetes-dashboard-0.5.0.tgz
+    version: 0.5.0
+  - appVersion: 1.7.1
     created: "2019-12-19T00:02:06.724873107Z"
     description: General-purpose web UI for Kubernetes clusters
     digest: 24cf6eb094ed97a2298b5e90f90ab3ae63b24aec87fb59435ffd0219f48892a3
