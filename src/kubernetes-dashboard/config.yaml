@@ -36,8 +36,10 @@ ingress:
     annotationSuffix: "-staging"
 
 rbac:
-  enabled: false
-  serviceAccountName: default
+  create: true
+serviceAccount:
+  create: true
+  name: 
 
 tolerations:
 #  - key: taintKey
